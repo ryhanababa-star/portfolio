@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ryhanatou BABA – Portfolio</title>
+<meta name="description" content="Portfolio de Ryhanatou BABA, Chargée d'études actuarielles et Data Science : Master Ingénierie de la donnée, parcours Actuariat-Finance.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* Style repris du portfolio d'origine : bleu nuit, accents dorés, photo en ouverture. Thème unique, sombre. */
+:root {
+  --navy: #0f1c2e;
+  --navy-2: #15263d;
+  --line: #24384f;
+  --text: #f1f4f8;
+  --muted: #a7b4c4;
+  --gold: #c9a227;
+  --gold-soft: rgba(201, 162, 39, 0.14);
+  --font: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { animation: none !important; transition: none !important; } }
+body { margin: 0; background: var(--navy); color: var(--text); font: 400 16.5px/1.65 var(--font); }
+a { color: var(--gold); }
+a:focus-visible, .btn:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; border-radius: 4px; }
+img { max-width: 100%; display: block; }
+h1, h2, h3 { margin: 0; text-wrap: balance; letter-spacing: -0.015em; }
+.wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+
+/* Navigation */
+.top { position: sticky; top: 0; z-index: 10; background: rgba(15, 28, 46, 0.92); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
+.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-top: 14px; padding-bottom: 14px; flex-wrap: wrap; }
+.brand { display: flex; align-items: center; gap: 10px; color: var(--text); text-decoration: none; font-weight: 700; }
+.brand span { display: grid; place-items: center; width: 32px; height: 32px; border-radius: 6px; background: var(--gold); color: var(--navy); font-size: 13px; font-weight: 800; }
+.top nav { display: flex; gap: 22px; flex-wrap: wrap; font-size: 14.5px; font-weight: 500; }
+.top nav a { color: var(--text); text-decoration: none; opacity: 0.85; }
+.top nav a:hover { color: var(--gold); opacity: 1; }
+
+/* Ouverture */
+.hero { padding: 72px 0 80px; }
+.hero .wrap { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr); gap: 56px; align-items: center; }
+.hero h1 { font-size: clamp(40px, 5.6vw, 64px); font-weight: 800; line-height: 1.05; }
+.role { margin: 14px 0 6px; color: var(--gold); font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; font-size: 15px; }
+.sub { color: var(--muted); margin: 0; }
+.bar { width: 64px; height: 3px; background: var(--gold); margin: 26px 0; border-radius: 2px; }
+.quote { font-style: italic; color: var(--muted); max-width: 34em; margin: 0 0 30px; }
+.status { display: inline-flex; align-items: center; gap: 8px; margin-bottom: 22px; padding: 7px 12px; border: 1px solid var(--gold); border-radius: 999px; color: var(--gold); font-size: 13px; font-weight: 600; background: var(--gold-soft); }
+.status::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--gold); }
+.ctas { display: flex; flex-wrap: wrap; gap: 12px; }
+.btn { display: inline-block; padding: 12px 20px; border-radius: 4px; font-size: 13.5px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; text-decoration: none; border: 1.5px solid var(--gold); color: var(--gold); transition: background 0.2s, color 0.2s; }
+.btn.gold { background: var(--gold); color: var(--navy); }
+.btn.white { border-color: var(--text); color: var(--text); }
+.btn:hover { background: var(--gold); color: var(--navy); border-color: var(--gold); }
+.portrait { position: relative; justify-self: center; width: min(100%, 340px); }
+.portrait img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 18px; border: 3px solid rgba(255, 255, 255, 0.08); box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35); }
+.portrait svg { position: absolute; right: -18px; bottom: -36px; width: 120px; }
+
+/* Sections */
+section { padding: 80px 0; border-top: 1px solid var(--line); }
+section.alt { background: var(--navy-2); }
+.kicker { color: var(--gold); font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; font-size: 13px; margin: 0 0 10px; }
+.sec-title { font-size: clamp(28px, 3.6vw, 38px); font-weight: 800; margin-bottom: 14px; }
+.sec-intro { color: var(--muted); max-width: 40em; margin: 0 0 40px; }
+
+/* À propos */
+.about { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 48px; align-items: start; }
+.about p { margin: 0 0 14px; max-width: 36em; }
+.facts { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.fact { border: 1px solid var(--line); border-left: 3px solid var(--gold); border-radius: 6px; padding: 14px 16px; background: rgba(255, 255, 255, 0.02); }
+.fact b { display: block; font-size: 11.5px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 4px; }
+.fact span { font-size: 15px; }
+
+/* Compétences */
+.skills { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
+.skill { border: 1px solid var(--line); border-radius: 10px; padding: 22px; background: var(--navy); }
+.skill h3 { font-size: 15px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold); margin-bottom: 14px; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip { padding: 6px 11px; border-radius: 999px; border: 1px solid var(--line); font-size: 14px; color: var(--text); background: rgba(255, 255, 255, 0.03); }
+
+/* Projets */
+.projects { display: grid; grid-template-columns: repeat(auto-fit, minmax(330px, 1fr)); gap: 22px; }
+.project { display: flex; flex-direction: column; border: 1px solid var(--line); border-radius: 12px; padding: 24px; background: var(--navy-2); transition: border-color 0.2s, transform 0.2s; }
+.project:hover { border-color: var(--gold); transform: translateY(-2px); }
+.p-top { display: flex; justify-content: space-between; gap: 12px; align-items: baseline; margin-bottom: 10px; }
+.p-date { font: 500 12.5px/1.3 var(--mono); color: var(--gold); }
+.p-ctx { font-size: 12.5px; color: var(--muted); text-align: right; }
+.project h3 { font-size: 20px; font-weight: 700; margin-bottom: 10px; }
+.p-sum { color: var(--muted); margin: 0 0 14px; font-size: 15.5px; }
+.p-img { border-radius: 8px; overflow: hidden; margin: 0 0 14px; background: #fff; }
+.metrics { display: flex; flex-wrap: wrap; gap: 18px; margin: 2px 0 16px; }
+.metric b { display: block; font-size: 28px; font-weight: 800; color: var(--gold); font-variant-numeric: tabular-nums; line-height: 1.1; }
+.metric small { display: block; font-size: 12.5px; color: var(--muted); max-width: 15em; line-height: 1.4; }
+.p-list { margin: 0 0 16px; padding-left: 18px; font-size: 15px; }
+.p-list li { margin-bottom: 4px; }
+.p-list li::marker { color: var(--gold); }
+.tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; padding-top: 6px; }
+.tag { font: 400 12px/1 var(--mono); padding: 6px 8px; border-radius: 4px; background: var(--gold-soft); color: #e7cf7d; }
+.p-link { margin-top: 16px; font-weight: 600; font-size: 14.5px; text-decoration: none; }
+.p-link:hover { text-decoration: underline; }
+
+/* Expérience et formation */
+.timeline { display: grid; gap: 18px; }
+.job { display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 28px; border: 1px solid var(--line); border-radius: 12px; padding: 24px; background: var(--navy); }
+.job .when { font: 500 13px/1.6 var(--mono); color: var(--gold); }
+.job h3 { font-size: 19px; font-weight: 700; }
+.job .where { color: var(--muted); margin: 2px 0 10px; }
+.job p { margin: 0 0 10px; max-width: 44em; }
+.job ul { margin: 0; padding-left: 18px; max-width: 44em; }
+.job li::marker { color: var(--gold); }
+.edu { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 18px; margin-top: 40px; }
+
+/* Citation */
+.why { text-align: left; max-width: 820px; }
+.why blockquote { margin: 0; padding-left: 22px; border-left: 3px solid var(--gold); font-size: clamp(19px, 2.3vw, 24px); line-height: 1.5; font-weight: 500; }
+
+/* Contact */
+.contact { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+.c-item { border: 1px solid var(--line); border-radius: 10px; padding: 18px; background: var(--navy-2); }
+.c-item b { display: block; font-size: 11.5px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 6px; }
+.c-item a, .c-item span { color: var(--text); text-decoration: none; word-break: break-word; }
+.c-item a:hover { color: var(--gold); }
+/* Formulaire de contact */
+.contact-grid { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr); gap: 28px; align-items: start; }
+.form { border: 1px solid var(--line); border-radius: 12px; padding: 24px; background: var(--navy-2); display: grid; gap: 16px; }
+.form .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.form label { display: grid; gap: 6px; font-size: 13px; font-weight: 600; letter-spacing: 0.04em; color: var(--muted); }
+.form input, .form textarea { width: 100%; padding: 12px 14px; border-radius: 6px; border: 1px solid var(--line); background: var(--navy); color: var(--text); font: 400 15.5px/1.5 var(--font); }
+.form textarea { min-height: 140px; resize: vertical; }
+.form input:focus, .form textarea:focus { outline: none; border-color: var(--gold); box-shadow: 0 0 0 3px var(--gold-soft); }
+.form button { justify-self: start; cursor: pointer; font-family: var(--font); }
+.form button[disabled] { opacity: 0.6; cursor: wait; }
+.form-status { margin: 0; font-size: 14.5px; min-height: 1.4em; }
+.form-status.ok { color: #7fd1a8; }
+.form-status.err { color: #f0a08a; }
+.hp { position: absolute; left: -9999px; }
+.contact { grid-template-columns: 1fr; }
+@media (max-width: 860px) { .contact-grid, .form .row2 { grid-template-columns: 1fr; } }
+footer { padding: 28px 0 40px; border-top: 1px solid var(--line); color: var(--muted); font-size: 13.5px; }
+
+@media (max-width: 860px) {
+  .hero .wrap, .about { grid-template-columns: 1fr; gap: 40px; }
+  .hero { padding: 44px 0 60px; }
+  .portrait { order: -1; width: min(70%, 280px); }
+  .job { grid-template-columns: 1fr; gap: 8px; }
+  section { padding: 60px 0; }
+  .facts { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#accueil"><span>RB</span>Ryhanatou BABA</a>
+    <nav aria-label="Sections">
+      <a href="#a-propos">À propos</a>
+      <a href="#competences">Compétences</a>
+      <a href="#projets">Projets</a>
+      <a href="#experiences">Expériences</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="accueil">
+  <div class="hero">
+    <div class="wrap">
+      <div>
+        <span class="status">Disponible pour un stage de fin d'études · février 2027 · 4 à 6 mois</span>
+        <h1>Ryhanatou BABA</h1>
+        <p class="role">Chargée d'études actuarielles | Data Science</p>
+        <p class="sub">Master 2 Ingénierie de la donnée, parcours Actuariat-Finance · IMA, UCO Angers</p>
+        <div class="bar"></div>
+        <p class="quote">« Transformer les données en décisions stratégiques, optimiser les risques et créer de la valeur grâce à l'analyse quantitative. »</p>
+        <div class="ctas">
+          <a class="btn gold" href="#projets">Voir mes projets</a>
+          <a class="btn white" href="#contact">Me contacter</a>
+        </div>
+      </div>
+      <div class="portrait">
+        <img src="profil.jpg" alt="Portrait de Ryhanatou BABA">
+        <svg viewBox="0 0 120 90" aria-hidden="true">
+          <g fill="#c9a227" opacity="0.85">
+            <rect x="6" y="52" width="16" height="36" rx="1"/>
+            <rect x="30" y="38" width="16" height="50" rx="1"/>
+            <rect x="54" y="22" width="16" height="66" rx="1"/>
+            <rect x="78" y="44" width="16" height="44" rx="1"/>
+            <rect x="102" y="30" width="16" height="58" rx="1"/>
+          </g>
+          <polyline points="14,44 38,30 62,12 86,36 110,20" fill="none" stroke="#e7cf7d" stroke-width="2.5"/>
+          <g fill="#e7cf7d"><circle cx="14" cy="44" r="3.5"/><circle cx="38" cy="30" r="3.5"/><circle cx="62" cy="12" r="3.5"/><circle cx="86" cy="36" r="3.5"/><circle cx="110" cy="20" r="3.5"/></g>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <section id="a-propos" class="alt">
+    <div class="wrap">
+      <p class="kicker">À propos de moi</p>
+      <div class="about">
+        <div>
+          <h2 class="sec-title">Des données au risque, puis à la décision</h2>
+          <p>Étudiante en Master 2 Ingénierie de la donnée, parcours Actuariat-Finance, je combine des compétences analytiques solides avec une passion pour l'actuariat et la gestion des risques.</p>
+          <p>Mon parcours en mathématiques appliquées, en data science et en finance me permet d'aborder les problèmes complexes avec rigueur et créativité. Cet été, mon stage chez Addactis m'a fait travailler sur des études de marché et de sinistralité en assurance IARD.</p>
+        </div>
+        <div class="facts">
+          <div class="fact"><b>Master 2</b><span>Ingénierie de la donnée, parcours Actuariat-Finance</span></div>
+          <div class="fact"><b>Profil</b><span>Actuariat · Data Science</span></div>
+          <div class="fact"><b>Domaines d'intérêt</b><span>Assurance, mutualité, banque, conseil</span></div>
+          <div class="fact"><b>Formation initiale</b><span>Licence Mathématiques appliquées aux sciences humaines et sociales</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="competences">
+    <div class="wrap">
+      <p class="kicker">Compétences</p>
+      <h2 class="sec-title">Ce que j'utilise en projet et en stage</h2>
+      <p class="sec-intro">Des méthodes actuarielles et statistiques, les outils pour les mettre en œuvre, et la capacité à restituer les résultats aux équipes métier.</p>
+      <div class="skills">
+        <div class="skill"><h3>Actuariat &amp; statistiques</h3><div class="chips">
+          <span class="chip">Probabilités</span><span class="chip">Statistiques avancées</span><span class="chip">Gestion du risque</span><span class="chip">Tarification</span><span class="chip">GLM</span><span class="chip">Modèles de survie</span><span class="chip">Processus stochastiques</span><span class="chip">Solvabilité II (notions)</span>
+        </div></div>
+        <div class="skill"><h3>Data science</h3><div class="chips">
+          <span class="chip">Python (Pandas, NumPy, Scikit-Learn)</span><span class="chip">R / RStudio</span><span class="chip">R Shiny</span><span class="chip">SQL</span><span class="chip">Power BI</span><span class="chip">Tableau</span><span class="chip">Excel avancé</span><span class="chip">VBA (notions)</span>
+        </div></div>
+        <div class="skill"><h3>Business &amp; transversal</h3><div class="chips">
+          <span class="chip">Analyse décisionnelle</span><span class="chip">Gestion de projet</span><span class="chip">Communication analytique</span><span class="chip">Résolution de problèmes</span><span class="chip">Esprit critique</span>
+        </div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projets" class="alt">
+    <div class="wrap">
+      <p class="kicker">Mes projets</p>
+      <h2 class="sec-title">Modéliser, prédire, simuler</h2>
+      <p class="sec-intro">Projets de Master et de Licence en actuariat, risque de crédit et data science. Le code et les rapports sont disponibles sur GitHub.</p>
+      <div class="projects" id="project-list"></div>
+    </div>
+  </section>
+
+  <section id="experiences">
+    <div class="wrap">
+      <p class="kicker">Expérience professionnelle</p>
+      <h2 class="sec-title">Stages</h2>
+      <p class="sec-intro">Deux expériences côté métier, en actuariat IARD et en data au service des risques bancaires.</p>
+      <div class="timeline">
+        <article class="job">
+          <div class="when">Juin – août 2026<br>Paris</div>
+          <div>
+            <h3>Stage Chargée d'études, Actuariat IARD</h3>
+            <p class="where">Addactis · équipe Pricing &amp; Analytics P&amp;C</p>
+            <ul>
+              <li>Études quantitatives sur les marchés de l'assurance auto et habitation, avec un volet marché professionnel.</li>
+              <li>Analyse de la sinistralité : évolution de la fréquence et du coût moyen des sinistres.</li>
+              <li>Modélisation sous R et Python (modèles linéaires, corrélations), synthèses, indicateurs et visualisations des résultats.</li>
+            </ul>
+          </div>
+        </article>
+        <article class="job">
+          <div class="when">Août 2024 · 1 mois<br>Brest</div>
+          <div>
+            <h3>Assistante MOA Data (stage)</h3>
+            <p class="where">Arkéa Banque Entreprises et Institutionnels</p>
+            <p>Au sein de la direction des risques, j'ai contribué à la fiabilisation et au pilotage des risques financiers (crédit, liquidité, marché).</p>
+            <ul>
+              <li>Sécurisation des reportings de risques via SQL, à destination de la direction des risques.</li>
+              <li>Pilotage des engagements bancaires avec des indicateurs et des tableaux de bord pour les équipes métier.</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+      <div class="edu">
+        <article class="job" style="grid-template-columns:1fr;gap:6px">
+          <div class="when">Depuis 2025 · en cours</div>
+          <h3>Master 2 Ingénierie de la donnée, parcours Actuariat-Finance</h3>
+          <p class="where">IMA, Université Catholique de l'Ouest, Angers</p>
+        </article>
+        <article class="job" style="grid-template-columns:1fr;gap:6px">
+          <div class="when">2022 – 2025 · obtenue</div>
+          <h3>Licence Mathématiques appliquées aux sciences humaines et sociales</h3>
+          <p class="where">Université de Bretagne Occidentale, Brest</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="alt">
+    <div class="wrap why">
+      <p class="kicker">Pourquoi l'actuariat ?</p>
+      <blockquote>Je souhaite évoluer dans les métiers de l'analyse quantitative et du risque afin de mettre mes compétences au service de l'anticipation, de la prise de décision et de l'innovation dans les secteurs de l'assurance, de la mutualité, de la banque et du conseil.</blockquote>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap">
+      <p class="kicker">Contact</p>
+      <h2 class="sec-title">Échangeons sur un stage</h2>
+      <p class="sec-intro">Je recherche un stage de fin d'études de 4 à 6 mois en actuariat ou en gestion des risques, à partir de février 2027.</p>
+      <div class="contact-grid">
+        <form class="form" id="contact-form" novalidate>
+          <!-- Clé Web3Forms : la remplacer par celle reçue par e-mail sur web3forms.com (les messages arrivent alors sur ryhanababa@gmail.com) -->
+          <input type="hidden" name="access_key" value="VOTRE_CLE_WEB3FORMS">
+          <input type="hidden" name="subject" value="Nouveau message depuis ton portfolio">
+          <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <div class="row2">
+            <label for="f-nom">Nom<input id="f-nom" name="name" type="text" autocomplete="name" required></label>
+            <label for="f-mail">E-mail<input id="f-mail" name="email" type="email" autocomplete="email" required></label>
+          </div>
+          <label for="f-org">Entreprise (facultatif)<input id="f-org" name="entreprise" type="text" autocomplete="organization"></label>
+          <label for="f-msg">Message<textarea id="f-msg" name="message" required></textarea></label>
+          <button class="btn gold" type="submit" id="f-send">Envoyer le message</button>
+          <p class="form-status" id="f-status" role="status" aria-live="polite"></p>
+        </form>
+        <div class="contact">
+          <div class="c-item"><b>E-mail</b><a href="mailto:ryhanababa@gmail.com">ryhanababa@gmail.com</a></div>
+          <div class="c-item"><b>LinkedIn</b><a href="https://www.linkedin.com/in/ryhanatou-baba-a4a6a3202">linkedin.com/in/ryhanatou-baba</a></div>
+          <div class="c-item"><b>GitHub</b><a href="https://github.com/ryhanababa-star">github.com/ryhanababa-star</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer><div class="wrap">© Ryhanatou BABA · Angers, France</div></footer>
+
+<!--
+  LISTE DES PROJETS (les plus pertinents pour l'actuariat en premier)
+  Pour ajouter un projet : copier un bloc { ... } et le placer selon sa pertinence pour l'actuariat.
+  Champs : date, titre, cadre, resume, points (liste), chiffres (liste de {valeur, legende}, résultats réels uniquement),
+  outils (liste), lien + lienTexte (facultatifs), image + imageAlt (facultatifs, fichier placé à côté de index.html).
+-->
+<script type="application/json" id="projets-data">
+[
+  {
+    "date": "Master 1",
+    "titre": "Risque de crédit : estimation de la probabilité de défaut",
+    "cadre": "Projet de Master 1 Actuariat-Finance · R et Excel",
+    "resume": "Anticiper le défaut d'un emprunteur à partir de données socio-économiques et financières (dataset Kaggle de 32 581 observations), pour produire un outil d'aide à la décision.",
+    "points": [
+      "Imputation des valeurs manquantes, statistiques descriptives et ACP.",
+      "Régressions multiple, Lasso et Ridge, sélection Forward/Backward pour identifier les variables explicatives majeures.",
+      "Réseau de neurones multicouche et courbe ROC sous Excel."
+    ],
+    "chiffres": [
+      {
+        "valeur": "86 %",
+        "legende": "de bonne classification"
+      },
+      {
+        "valeur": "32 581",
+        "legende": "emprunteurs analysés"
+      }
+    ],
+    "outils": [
+      "R",
+      "Excel",
+      "ACP",
+      "Lasso",
+      "Ridge",
+      "Réseau de neurones"
+    ],
+    "lien": "https://github.com/ryhanababa-star/credit-risk-prediction",
+    "lienTexte": "Voir le projet"
+  },
+  {
+    "date": "Master",
+    "titre": "Modélisation stochastique des sinistres automobiles",
+    "cadre": "Projet de Master · R et Excel",
+    "resume": "Analyse d'un système d'attente M/M/5 et d'un réseau de Petri stochastique pour évaluer la prise en charge d'un flux de 15 sinistres par jour.",
+    "chiffres": [
+      {
+        "valeur": "76,4 %",
+        "legende": "de prise en charge immédiate"
+      },
+      {
+        "valeur": "34 min",
+        "legende": "de délai moyen d'attente"
+      }
+    ],
+    "outils": [
+      "R",
+      "Excel",
+      "M/M/5",
+      "Réseau de Petri",
+      "Sinistralité"
+    ]
+  },
+  {
+    "date": "Janvier 2026",
+    "titre": "Ciblage d'une campagne de marketing bancaire",
+    "cadre": "Projet de Master en binôme · R",
+    "resume": "Prédire quels clients d'une banque vont souscrire à une offre pour concentrer la campagne sur eux, à partir des données de 4 521 clients.",
+    "points": [
+      "Comparaison de quatre classifieurs : LDA, QDA, SVM et réseau de neurones.",
+      "Réseau de neurones à 5 neurones cachés retenu comme meilleur compromis, avec une meilleure détection des clients intéressés (classe minoritaire)."
+    ],
+    "chiffres": [
+      {
+        "valeur": "83 %",
+        "legende": "de précision pour repérer les clients intéressés"
+      }
+    ],
+    "outils": [
+      "R",
+      "LDA",
+      "QDA",
+      "SVM",
+      "Réseau de neurones"
+    ],
+    "lien": "https://github.com/ryhanababa-star/bank-marketing-classification",
+    "lienTexte": "Voir le rapport"
+  },
+  {
+    "date": "Projet académique",
+    "titre": "Simulateur financier",
+    "cadre": "Application R Shiny",
+    "resume": "Application interactive de simulation de trajectoires financières, testée et présentée dans un cadre académique pour visualiser des scénarios et appuyer l'analyse décisionnelle.",
+    "outils": [
+      "R Shiny",
+      "Finance",
+      "Simulation",
+      "Visualisation"
+    ]
+  },
+  {
+    "date": "Janvier 2025",
+    "titre": "Application de tableaux de remboursement",
+    "cadre": "Projet de Licence en binôme · R Shiny",
+    "resume": "Calcul, visualisation et export de l'échéancier d'un prêt à taux fixe.",
+    "points": [
+      "Annuité, intérêts, amortissement, assurance et capital restant dû, période par période.",
+      "Graphique interactif de la répartition intérêts / capital, export en CSV et en Excel."
+    ],
+    "image": "shiny-remboursement.jpg",
+    "imageAlt": "Capture de l'application : paramètres du prêt, tableau d'amortissement et graphique de répartition",
+    "outils": [
+      "R",
+      "Shiny",
+      "plotly",
+      "openxlsx"
+    ],
+    "lien": "https://github.com/ryhanababa-star/tableau-remboursement-rshiny",
+    "lienTexte": "Voir le code"
+  },
+  {
+    "date": "Mars 2026",
+    "titre": "Segmentation d'images par deep learning",
+    "cadre": "Projet de Master · PyTorch",
+    "resume": "Segmentation de visages en 9 zones (sourcils, yeux, etc.) sur le jeu de données FASSEG, avec un réseau U-Net allégé entraîné sur GPU.",
+    "points": [
+      "Préparation des images et des masques (256 × 256) et augmentation de données avec inversion gauche/droite des étiquettes.",
+      "Architecture U-Net : encodeur, décodeur et connexions de saut.",
+      "Évaluation par précision au pixel et IoU moyen, avec une perte de Dice."
+    ],
+    "outils": [
+      "Python",
+      "PyTorch",
+      "U-Net",
+      "Google Colab"
+    ]
+  }
+]
+</script>
+
+<script>
+(function () {
+  function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return {"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"}[c]; }); }
+  var projets = [];
+  try { projets = JSON.parse(document.getElementById("projets-data").textContent); } catch (e) { projets = []; }
+  document.getElementById("project-list").innerHTML = projets.map(function (p) {
+    return '<article class="project">' +
+      '<div class="p-top"><span class="p-date">' + esc(p.date) + '</span><span class="p-ctx">' + esc(p.cadre || "") + '</span></div>' +
+      '<h3>' + esc(p.titre) + '</h3>' +
+      '<p class="p-sum">' + esc(p.resume) + '</p>' +
+      (p.image ? '<div class="p-img"><img src="' + esc(p.image) + '" alt="' + esc(p.imageAlt || "") + '" loading="lazy"></div>' : '') +
+      (p.chiffres && p.chiffres.length ? '<div class="metrics">' + p.chiffres.map(function (m) { return '<div class="metric"><b>' + esc(m.valeur) + '</b><small>' + esc(m.legende) + '</small></div>'; }).join("") + '</div>' : '') +
+      (p.points && p.points.length ? '<ul class="p-list">' + p.points.map(function (x) { return '<li>' + esc(x) + '</li>'; }).join("") + '</ul>' : '') +
+      '<div class="tags">' + (p.outils || []).map(function (t) { return '<span class="tag">' + esc(t) + '</span>'; }).join("") + '</div>' +
+      (p.lien ? '<a class="p-link" href="' + esc(p.lien) + '">' + esc(p.lienTexte || "Voir le projet") + ' →</a>' : '') +
+      '</article>';
+  }).join("");
+})();
+</script>
+<script>
+(function () {
+  var form = document.getElementById("contact-form");
+  var status = document.getElementById("f-status");
+  var send = document.getElementById("f-send");
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    status.className = "form-status";
+    var data = Object.fromEntries(new FormData(form));
+    if (!data.name || !data.email || !data.message) { status.className = "form-status err"; status.textContent = "Merci de remplir votre nom, votre e-mail et votre message."; return; }
+    if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(data.email)) { status.className = "form-status err"; status.textContent = "L'adresse e-mail ne semble pas valide."; return; }
+    if (data.access_key === "VOTRE_CLE_WEB3FORMS") { status.className = "form-status err"; status.textContent = "Le formulaire n'est pas encore activé. Écrivez-moi à ryhanababa@gmail.com."; return; }
+    send.disabled = true; status.textContent = "Envoi en cours…";
+    fetch("https://api.web3forms.com/submit", { method: "POST", headers: { "Content-Type": "application/json", "Accept": "application/json" }, body: JSON.stringify(data) })
+      .then(function (r) { return r.json(); })
+      .then(function (res) {
+        if (res.success) { status.className = "form-status ok"; status.textContent = "Merci, votre message a bien été envoyé. Je vous réponds rapidement."; form.reset(); }
+        else { throw new Error(); }
+      })
+      .catch(function () { status.className = "form-status err"; status.textContent = "L'envoi n'a pas abouti. Écrivez-moi directement à ryhanababa@gmail.com."; })
+      .finally(function () { send.disabled = false; });
+  });
+})();
+</script>
+</body>
+</html>
