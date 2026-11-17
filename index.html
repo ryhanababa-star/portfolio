@@ -99,6 +99,11 @@ section.alt { background: var(--navy-2); }
 .chips { display: flex; flex-wrap: wrap; gap: 8px; }
 .chip { padding: 6px 11px; border-radius: 999px; border: 1px solid var(--line); font-size: 14px; color: var(--text); background: var(--navy-2); }
 
+.langs { margin: 0; display: grid; gap: 12px; }
+.langs div { border-left: 3px solid var(--sky); padding-left: 12px; }
+.langs dt { font-weight: 700; color: var(--navy); }
+.langs dd { margin: 2px 0 0; color: var(--muted); font-size: 15px; }
+
 /* Projets */
 .projects { display: grid; grid-template-columns: repeat(auto-fit, minmax(440px, 1fr)); gap: 28px; }
 .project { display: flex; flex-direction: column; border: 1px solid var(--line); border-radius: 12px; padding: 24px; background: #fff; transition: border-color 0.2s, transform 0.2s; }
@@ -282,9 +287,13 @@ footer { padding: 28px 0 40px; border-top: 1px solid var(--line); color: var(--m
         <div class="skill"><h3>Business &amp; transversal</h3><div class="chips">
           <span class="chip">Analyse décisionnelle</span><span class="chip">Gestion de projet</span><span class="chip">Communication analytique</span><span class="chip">Résolution de problèmes</span><span class="chip">Esprit critique</span>
         </div></div>
-        <div class="skill"><h3>Langues</h3><div class="chips">
-          <span class="chip">Français : langue maternelle</span><span class="chip">Anglais : intermédiaire (B1), en progression</span><span class="chip">Cours « Meet for English », 2 h par semaine</span>
-        </div></div>
+        <div class="skill"><h3>Langues</h3>
+          <dl class="langs">
+            <div><dt>Français</dt><dd>Langue maternelle</dd></div>
+            <div><dt>Anglais</dt><dd>Niveau intermédiaire (B1), en progression</dd></div>
+            <div><dt>Meet for English</dt><dd>Cours d'anglais de 2 h par semaine</dd></div>
+          </dl>
+        </div>
       </div>
     </div>
   </section>
