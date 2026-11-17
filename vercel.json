@@ -1,1 +1,4 @@
-{ "cleanUrls": true }
+{
+  "cleanUrls": true,
+  "redirects": [{ "source": "/en", "destination": "/#en", "permanent": false }]
+}

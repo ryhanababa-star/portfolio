@@ -6,7 +6,6 @@
 <title>Ryhanatou BABA – Portfolio</title>
 <meta name="description" content="Portfolio de Ryhanatou BABA, Chargée d'études actuarielles et Data Science : Master Ingénierie de la donnée, parcours Actuariat-Finance.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Crect width=%2764%27 height=%2764%27 rx=%2712%27 fill=%27%235fb3f0%27/%3E%3Ctext x=%2732%27 y=%2742%27 font-family=%27Arial%27 font-weight=%27700%27 font-size=%2728%27 text-anchor=%27middle%27 fill=%27%230f1c2e%27%3ERB%3C/text%3E%3C/svg%3E">
-<link rel="alternate" hreflang="en" href="/en">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -207,10 +206,15 @@ footer { padding: 28px 0 40px; border-top: 1px solid var(--line); color: var(--m
   section { padding: 60px 0; }
   .facts { grid-template-columns: 1fr; }
 }
+
+/* Deux langues sur la même page */
+html[data-lang="en"] .lang-fr { display: none; }
+html:not([data-lang="en"]) .lang-en { display: none; }
+button.lang-switch { background: none; cursor: pointer; font-family: var(--font); }
 </style>
 </head>
 <body>
-
+<div class="lang-fr">
 <header class="top">
   <div class="wrap">
     <a class="brand" href="#accueil"><span>RB</span>Ryhanatou BABA</a>
@@ -221,7 +225,7 @@ footer { padding: 28px 0 40px; border-top: 1px solid var(--line); color: var(--m
       <a href="#experiences">Expériences</a>
       <a href="#engagement">Engagement</a>
       <a href="#contact">Contact</a>
-      <a class="lang-switch" href="/en" hreflang="en" lang="en" aria-label="English version">EN</a>
+      <button type="button" class="lang-switch" data-set-lang="en" lang="en" aria-label="English version">EN</button>
     </nav>
   </div>
 </header>
@@ -438,13 +442,243 @@ footer { padding: 28px 0 40px; border-top: 1px solid var(--line); color: var(--m
 </main>
 
 <footer><div class="wrap">© Ryhanatou BABA · Angers, France</div></footer>
+</div>
+<div class="lang-en" lang="en">
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#accueil-en"><span>RB</span>Ryhanatou BABA</a>
+    <nav aria-label="Sections">
+      <a href="#a-propos-en">About</a>
+      <a href="#competences-en">Skills</a>
+      <a href="#projets-en">Projects</a>
+      <a href="#experiences-en">Experience</a>
+      <a href="#engagement-en">Activities</a>
+      <a href="#contact-en">Contact</a>
+      <button type="button" class="lang-switch" data-set-lang="fr" lang="fr" aria-label="Version française">FR</button>
+    </nav>
+  </div>
+</header>
+
+<main id="accueil-en">
+  <div class="hero">
+    <div class="wrap">
+      <div>
+        <span class="status">Available for a final-year internship · February 2027 · 4 to 6 months</span>
+        <h1>Ryhanatou BABA</h1>
+        <p class="role">Actuarial Analyst | Data Science</p>
+        <p class="sub">Master's degree (2nd year) in Data Engineering, Actuarial Science &amp; Finance track · IMA, UCO Angers</p>
+        <div class="bar"></div>
+        <p class="quote">“Turning data into strategic decisions, optimising risk and creating value through quantitative analysis.”</p>
+        <div class="ctas">
+          <a class="btn gold" href="#projets-en">See my projects</a>
+          <a class="btn white" href="#contact-en">Contact me</a>
+        </div>
+      </div>
+      <div class="portrait">
+        <img src="profil.jpg" alt="Portrait of Ryhanatou BABA">
+        <svg viewBox="0 0 120 90" aria-hidden="true">
+          <g fill="#5fb3f0" opacity="0.85">
+            <rect x="6" y="52" width="16" height="36" rx="1"/>
+            <rect x="30" y="38" width="16" height="50" rx="1"/>
+            <rect x="54" y="22" width="16" height="66" rx="1"/>
+            <rect x="78" y="44" width="16" height="44" rx="1"/>
+            <rect x="102" y="30" width="16" height="58" rx="1"/>
+          </g>
+          <polyline points="14,44 38,30 62,12 86,36 110,20" fill="none" stroke="#cfe6fa" stroke-width="2.5"/>
+          <g fill="#cfe6fa"><circle cx="14" cy="44" r="3.5"/><circle cx="38" cy="30" r="3.5"/><circle cx="62" cy="12" r="3.5"/><circle cx="86" cy="36" r="3.5"/><circle cx="110" cy="20" r="3.5"/></g>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <section id="a-propos-en" class="alt">
+    <div class="wrap">
+      <p class="kicker">About me</p>
+      <div class="about">
+        <div>
+          <h2 class="sec-title">From data to risk, then to decisions</h2>
+          <p>As a second-year Master's student in Data Engineering (Actuarial Science &amp; Finance track), I combine strong analytical skills with a passion for actuarial science and risk management.</p>
+          <p>My background in applied mathematics, data science and finance helps me tackle complex problems with rigour and creativity. This summer, my internship at Addactis had me working on market and claims studies in property &amp; casualty insurance.</p>
+        </div>
+        <div class="facts">
+          <div class="fact"><b>Master's degree</b><span>Data Engineering, Actuarial Science &amp; Finance track</span></div>
+          <div class="fact"><b>Profile</b><span>Actuarial science · Data Science</span></div>
+          <div class="fact"><b>Fields of interest</b><span>Insurance, mutual insurance, banking, consulting</span></div>
+          <div class="fact"><b>Bachelor's degree</b><span>Applied Mathematics for the Social Sciences</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="competences-en">
+    <div class="wrap">
+      <p class="kicker">Skills</p>
+      <h2 class="sec-title">What I use in projects and internships</h2>
+      <p class="sec-intro">Actuarial and statistical methods, the tools to apply them, and the ability to present results to business teams.</p>
+      <div class="skills">
+        <div class="skill"><h3>Actuarial science &amp; statistics</h3><div class="chips">
+          <span class="chip">Probability</span><span class="chip">Advanced statistics</span><span class="chip">Risk management</span><span class="chip">Pricing</span><span class="chip">GLM</span><span class="chip">Survival models</span><span class="chip">Stochastic processes</span><span class="chip">Solvency II (basics)</span>
+        </div></div>
+        <div class="skill"><h3>Data science</h3><div class="chips">
+          <span class="chip">Python (Pandas, NumPy, Scikit-Learn)</span><span class="chip">R / RStudio</span><span class="chip">R Shiny</span><span class="chip">SQL</span><span class="chip">Power BI</span><span class="chip">Tableau</span><span class="chip">Advanced Excel</span><span class="chip">VBA (basics)</span>
+        </div></div>
+        <div class="skill"><h3>Business &amp; soft skills</h3><div class="chips">
+          <span class="chip">Decision analysis</span><span class="chip">Project management</span><span class="chip">Analytical communication</span><span class="chip">Problem solving</span><span class="chip">Critical thinking</span>
+        </div></div>
+        <div class="skill"><h3>Languages</h3>
+          <dl class="langs">
+            <div><dt>French</dt><dd>Native language</dd></div>
+            <div><dt>English</dt><dd>Intermediate (B1), improving</dd></div>
+            <div><dt>Meet for English</dt><dd>English class, 2 hours a week</dd></div>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projets-en" class="alt">
+    <div class="wrap">
+      <p class="kicker">My projects</p>
+      <h2 class="sec-title">Model, predict, simulate</h2>
+      <p class="sec-intro">Master's and Bachelor's projects in actuarial science, credit risk and data science. Where published, the code and reports are on GitHub.</p>
+      <div class="projects" id="project-list-en"></div>
+    </div>
+  </section>
+
+  <section id="experiences-en">
+    <div class="wrap">
+      <p class="kicker">Professional experience</p>
+      <h2 class="sec-title">Internships</h2>
+      <p class="sec-intro">Two hands-on experiences: P&amp;C actuarial work and data for banking risk management.</p>
+      <div class="timeline">
+        <article class="job">
+          <div class="when">June – August 2026<br>Paris</div>
+          <div>
+            <h3>Actuarial Analyst Intern, P&amp;C</h3>
+            <p class="where">Addactis · Pricing &amp; Analytics P&amp;C team</p>
+            <ul>
+              <li>Quantitative studies of the motor and home insurance markets, including a commercial lines component.</li>
+              <li>Claims analysis: trends in claim frequency and average claim cost.</li>
+              <li>Modelling in R and Python (linear models, correlations), with summaries, indicators and visualisations of the results.</li>
+            </ul>
+          </div>
+        </article>
+        <article class="job">
+          <div class="when">August 2024 · 1 month<br>Brest</div>
+          <div>
+            <h3>Data Project Assistant (internship)</h3>
+            <p class="where">Arkéa Banque Entreprises et Institutionnels</p>
+            <p>Within the risk department, I helped make financial risk monitoring (credit, liquidity, market) more reliable.</p>
+            <ul>
+              <li>Securing risk reports with SQL for the risk department.</li>
+              <li>Monitoring bank commitments with indicators and dashboards for business teams.</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+      <div class="edu">
+        <article class="job" style="grid-template-columns:1fr;gap:6px">
+          <div class="when">Since 2025 · in progress</div>
+          <h3>Master's degree in Data Engineering, Actuarial Science &amp; Finance track (2nd year)</h3>
+          <p class="where">IMA, Université Catholique de l'Ouest, Angers, France</p>
+        </article>
+        <article class="job" style="grid-template-columns:1fr;gap:6px">
+          <div class="when">2022 – 2025 · completed</div>
+          <h3>Bachelor's degree in Applied Mathematics for the Social Sciences</h3>
+          <p class="where">Université de Bretagne Occidentale, Brest, France</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="engagement-en" class="alt">
+    <div class="wrap">
+      <p class="kicker">Beyond my studies</p>
+      <h2 class="sec-title">Volunteering and activities</h2>
+      <p class="sec-intro">Outside my studies: volunteering at events around Angers, running, and a weekly English class.</p>
+      <div class="engage">
+        <article class="engage-org">
+          <h3>Volunteer</h3>
+          <p class="where">La Boîte Nomade</p>
+          <p>Volunteer with the association at two major events in the Angers area.</p>
+        </article>
+        <div class="events">
+          <article class="event">
+            <span class="label-ev">Festival</span>
+            <h4>Les Accroche-Cœurs</h4>
+            <p>Street arts festival in Angers.</p>
+          </article>
+          <article class="event">
+            <span class="label-ev">Sporting event</span>
+            <h4>Le Mondial du Lion</h4>
+            <p>International eventing (equestrian) competition in Le Lion-d'Angers.</p>
+          </article>
+        </div>
+      </div>
+      <div class="perso">
+        <article class="event">
+          <span class="label-ev">Sport</span>
+          <h4>Running and swimming</h4>
+          <p>5 km runs three times a week (Monday, Tuesday and Thursday). I also used to swim.</p>
+        </article>
+        <article class="event">
+          <span class="label-ev">Languages</span>
+          <dl class="langs" style="margin-top:12px">
+            <div><dt>French</dt><dd>Native language</dd></div>
+            <div><dt>English</dt><dd>Intermediate (B1), improving</dd></div>
+            <div><dt>Meet for English</dt><dd>English class, 2 hours a week, to improve my level</dd></div>
+          </dl>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap why">
+      <p class="kicker">Why actuarial science?</p>
+      <blockquote>I want to build a career in quantitative analysis and risk, using my skills to support anticipation, decision-making and innovation in insurance, mutual insurance, banking and consulting.</blockquote>
+    </div>
+  </section>
+
+  <section id="contact-en">
+    <div class="wrap">
+      <p class="kicker">Contact</p>
+      <h2 class="sec-title">Let's talk about an internship</h2>
+      <p class="sec-intro">I am looking for a 4 to 6 month final-year internship in actuarial science or risk management, starting in February 2027.</p>
+      <div class="contact-grid">
+        <form class="form" id="contact-form-en" novalidate>
+          <!-- Clé Web3Forms : la remplacer par celle reçue par e-mail sur web3forms.com (les messages arrivent alors sur ryhanababa@gmail.com) -->
+          <input type="hidden" name="access_key" value="VOTRE_CLE_WEB3FORMS">
+          <input type="hidden" name="subject" value="Nouveau message depuis ton portfolio (version anglaise)">
+          <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <div class="row2">
+            <label for="f-nom-en">Name<input id="f-nom-en" name="name" type="text" autocomplete="name" required></label>
+            <label for="f-mail-en">Email<input id="f-mail-en" name="email" type="email" autocomplete="email" required></label>
+          </div>
+          <label for="f-org-en">Company (optional)<input id="f-org-en" name="entreprise" type="text" autocomplete="organization"></label>
+          <label for="f-msg-en">Message<textarea id="f-msg-en" name="message" required></textarea></label>
+          <button class="btn gold" type="submit" id="f-send-en">Send message</button>
+          <p class="form-status" id="f-status-en" role="status" aria-live="polite"></p>
+        </form>
+        <div class="contact">
+          <div class="c-item"><b>Email</b><a href="mailto:ryhanababa@gmail.com">ryhanababa@gmail.com</a></div>
+          <div class="c-item"><b>LinkedIn</b><a href="https://www.linkedin.com/in/ryhanatou-baba-a4a6a3202">linkedin.com/in/ryhanatou-baba</a></div>
+          <div class="c-item"><b>GitHub</b><a href="https://github.com/ryhanababa-star">github.com/ryhanababa-star</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer><div class="wrap">© Ryhanatou BABA · Angers, France</div></footer>
+</div>
 
 <!--
-  LISTE DES PROJETS (les plus pertinents pour l'actuariat en premier)
-  Pour ajouter un projet : copier un bloc { ... } et le placer selon sa pertinence pour l'actuariat.
+  PROJETS : deux listes, une par langue, dans le même ordre.
+  - Français : bloc id="projets-data"      - Anglais : bloc id="projets-data-en"
+  Pour ajouter un projet, ajouter le bloc { ... } dans LES DEUX listes, à la même position.
   Champs : date, titre, cadre, resume, points (liste), chiffres (liste de {valeur, legende}, résultats réels uniquement),
-  outils (liste), lien + lienTexte (facultatifs),
-  images (facultatif) : liste de {src, alt, legende}, fichiers placés à côté de index.html ; la première s'affiche en grand.
+  outils (liste), lien + lienTexte (facultatifs), images (liste de {src, alt, legende} ; la première s'affiche en grand).
 -->
 <script type="application/json" id="projets-data">
 [
@@ -610,63 +844,210 @@ footer { padding: 28px 0 40px; border-top: 1px solid var(--line); color: var(--m
   }
 ]
 </script>
+<script type="application/json" id="projets-data-en">
+[
+  {
+    "date": "Master's year 1",
+    "titre": "Credit risk: estimating the probability of default",
+    "cadre": "Master's year 1 project, Actuarial Science & Finance · R and Excel",
+    "resume": "Predicting borrower default from socio-economic and financial data (Kaggle dataset, 32,581 observations) to build a decision-support tool.",
+    "points": [
+      "Missing-value imputation, descriptive statistics and PCA.",
+      "Multiple, Lasso and Ridge regressions with forward/backward selection to identify the key explanatory variables.",
+      "Multilayer neural network and ROC curve in Excel."
+    ],
+    "chiffres": [
+      {
+        "valeur": "86%",
+        "legende": "correct classification rate"
+      },
+      {
+        "valeur": "32,581",
+        "legende": "borrowers analysed"
+      }
+    ],
+    "outils": [
+      "R",
+      "Excel",
+      "PCA",
+      "Lasso",
+      "Ridge",
+      "Neural network"
+    ],
+    "lien": "https://github.com/ryhanababa-star/credit-risk-prediction",
+    "lienTexte": "See the project",
+    "images": [
+      {
+        "src": "credit-roc.jpg",
+        "alt": "ROC curve of the credit risk model: actual cumulative versus ideal cumulative",
+        "legende": "ROC curve on the test set: cumulative defaults detected (orange) versus the ideal curve (blue)."
+      },
+      {
+        "src": "credit-apprentissage.jpg",
+        "alt": "JNNET interface while training the neural network, with the error curve",
+        "legende": "Training the neural network in JNNET and error over iterations."
+      }
+    ]
+  },
+  {
+    "date": "Master's year 1",
+    "titre": "Stochastic modelling of motor insurance claims",
+    "cadre": "Master's year 1 project · R and Excel",
+    "resume": "Analysis of an M/M/5 queueing system and a stochastic Petri net to assess how a flow of 15 claims per day is handled.",
+    "chiffres": [
+      {
+        "valeur": "76.4%",
+        "legende": "of claims handled immediately"
+      },
+      {
+        "valeur": "34 min",
+        "legende": "average waiting time"
+      }
+    ],
+    "outils": [
+      "R",
+      "Excel",
+      "M/M/5",
+      "Petri net",
+      "Claims"
+    ],
+    "images": [
+      {
+        "src": "mm5-schema.svg",
+        "alt": "Diagram of the M/M/5 system: 15 claims per day, a queue and 5 claims handlers",
+        "legende": "Diagram of the modelled system and main results."
+      }
+    ]
+  },
+  {
+    "date": "January 2026",
+    "titre": "Targeting a bank marketing campaign",
+    "cadre": "Master's project in pairs · R",
+    "resume": "Predicting which bank customers will subscribe to an offer so the campaign can focus on them, using data on 4,521 customers.",
+    "points": [
+      "Comparison of four classifiers: LDA, QDA, SVM and a neural network.",
+      "A neural network with 5 hidden neurons was retained as the best trade-off, with better detection of interested customers (minority class)."
+    ],
+    "chiffres": [
+      {
+        "valeur": "83%",
+        "legende": "precision in identifying interested customers"
+      }
+    ],
+    "outils": [
+      "R",
+      "LDA",
+      "QDA",
+      "SVM",
+      "Neural network"
+    ],
+    "lien": "https://github.com/ryhanababa-star/bank-marketing-classification",
+    "lienTexte": "See the report",
+    "images": [
+      {
+        "src": "banque-reseau-neurones.jpg",
+        "alt": "Architecture of the retained neural network: 13 inputs, 5 hidden neurons, 1 output",
+        "legende": "Retained neural network: 13 input variables, 5 hidden neurons."
+      },
+      {
+        "src": "banque-arbre-decision.jpg",
+        "alt": "Decision tree: the previous and pdays variables split customers",
+        "legende": "Decision tree: contact during a previous campaign is the most decisive variable."
+      }
+    ]
+  },
+  {
+    "date": "January 2025",
+    "titre": "Financial simulator",
+    "cadre": "Bachelor's project in pairs · R Shiny",
+    "resume": "Interactive application that simulates the repayment schedule of a fixed-rate loan, to visualise scenarios and support decision-making.",
+    "points": [
+      "Instalment, interest, principal, insurance and outstanding balance computed period by period.",
+      "Interactive chart of the interest / principal split, with export to CSV and Excel."
+    ],
+    "outils": [
+      "R",
+      "Shiny",
+      "plotly",
+      "openxlsx",
+      "Simulation"
+    ],
+    "lien": "https://github.com/ryhanababa-star/tableau-remboursement-rshiny",
+    "lienTexte": "See the code",
+    "images": [
+      {
+        "src": "shiny-remboursement.jpg",
+        "alt": "Screenshot of the simulator: loan parameters, amortisation table and split chart",
+        "legende": "The application: loan parameters, amortisation table and interest / principal split."
+      }
+    ]
+  },
+  {
+    "date": "March 2026",
+    "titre": "Image segmentation with deep learning",
+    "cadre": "Master's project · PyTorch",
+    "resume": "Segmenting faces into 9 regions (eyebrows, eyes, etc.) on the FASSEG dataset with a lightweight U-Net trained on GPU.",
+    "points": [
+      "Image and mask preparation (256 × 256) and data augmentation with left/right label swapping.",
+      "U-Net architecture: encoder, decoder and skip connections.",
+      "Evaluation with pixel accuracy and mean IoU, using a Dice loss."
+    ],
+    "outils": [
+      "Python",
+      "PyTorch",
+      "U-Net",
+      "Google Colab"
+    ],
+    "images": [
+      {
+        "src": "segmentation-courbes.jpg",
+        "alt": "Loss and accuracy curves of the U-Net for training and validation over 140 epochs",
+        "legende": "Training and validation loss and accuracy over the epochs."
+      }
+    ]
+  }
+]
+</script>
 
-<script>
-(function () {
-  function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return {"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"}[c]; }); }
-  var projets = [];
-  try { projets = JSON.parse(document.getElementById("projets-data").textContent); } catch (e) { projets = []; }
-  document.getElementById("project-list").innerHTML = projets.map(function (p) {
-    var im = p.images || [];
-    var gal = im.length ? '<div class="p-gallery"><button type="button" class="p-main" data-i="0" aria-label="Agrandir l\'image"><img src="' + esc(im[0].src) + '" alt="' + esc(im[0].alt || "") + '" loading="lazy"></button>' +
-      '<p class="p-cap">' + esc(im[0].legende || "") + '</p>' +
-      (im.length > 1 ? '<div class="p-thumbs">' + im.map(function (x, k) { return '<button type="button" class="p-thumb" data-i="' + k + '" aria-current="' + (k === 0) + '" aria-label="Voir l\'image ' + (k + 1) + '"><img src="' + esc(x.src) + '" alt=""></button>'; }).join("") + '</div>' : '') + '</div>' : '';
-    return '<article class="project" data-images="' + esc(JSON.stringify(im)) + '">' + gal +
-      '<div class="p-top"><span class="p-date">' + esc(p.date) + '</span><span class="p-ctx">' + esc(p.cadre || "") + '</span></div>' +
-      '<h3>' + esc(p.titre) + '</h3>' +
-      '<p class="p-sum">' + esc(p.resume) + '</p>' +
-      
-      (p.chiffres && p.chiffres.length ? '<div class="metrics">' + p.chiffres.map(function (m) { return '<div class="metric"><b>' + esc(m.valeur) + '</b><small>' + esc(m.legende) + '</small></div>'; }).join("") + '</div>' : '') +
-      (p.points && p.points.length ? '<ul class="p-list">' + p.points.map(function (x) { return '<li>' + esc(x) + '</li>'; }).join("") + '</ul>' : '') +
-      '<div class="tags">' + (p.outils || []).map(function (t) { return '<span class="tag">' + esc(t) + '</span>'; }).join("") + '</div>' +
-      (p.lien ? '<a class="p-link" href="' + esc(p.lien) + '">' + esc(p.lienTexte || "Voir le projet") + ' →</a>' : '') +
-      '</article>';
-  }).join("");
-})();
-</script>
-<script>
-(function () {
-  var form = document.getElementById("contact-form");
-  var status = document.getElementById("f-status");
-  var send = document.getElementById("f-send");
-  form.addEventListener("submit", function (e) {
-    e.preventDefault();
-    status.className = "form-status";
-    var data = Object.fromEntries(new FormData(form));
-    if (!data.name || !data.email || !data.message) { status.className = "form-status err"; status.textContent = "Merci de remplir votre nom, votre e-mail et votre message."; return; }
-    if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(data.email)) { status.className = "form-status err"; status.textContent = "L'adresse e-mail ne semble pas valide."; return; }
-    if (data.access_key === "VOTRE_CLE_WEB3FORMS") { status.className = "form-status err"; status.textContent = "Le formulaire n'est pas encore activé. Écrivez-moi à ryhanababa@gmail.com."; return; }
-    send.disabled = true; status.textContent = "Envoi en cours…";
-    fetch("https://api.web3forms.com/submit", { method: "POST", headers: { "Content-Type": "application/json", "Accept": "application/json" }, body: JSON.stringify(data) })
-      .then(function (r) { return r.json(); })
-      .then(function (res) {
-        if (res.success) { status.className = "form-status ok"; status.textContent = "Merci, votre message a bien été envoyé. Je vous réponds rapidement."; form.reset(); }
-        else { throw new Error(); }
-      })
-      .catch(function () { status.className = "form-status err"; status.textContent = "L'envoi n'a pas abouti. Écrivez-moi directement à ryhanababa@gmail.com."; })
-      .finally(function () { send.disabled = false; });
-  });
-})();
-</script>
 <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image agrandie">
   <button type="button" class="close" id="lb-close" aria-label="Fermer">×</button>
   <figure><img id="lb-img" src="" alt=""><figcaption id="lb-cap"></figcaption></figure>
 </div>
 <script>
 (function () {
-  var lb = document.getElementById("lightbox"), lbImg = document.getElementById("lb-img"), lbCap = document.getElementById("lb-cap");
-  function close() { lb.classList.remove("open"); }
-  document.getElementById("project-list").addEventListener("click", function (e) {
+  var TXT = {
+    fr: { zoom: "Agrandir l'image", show: "Voir l'image ", missing: "Merci de remplir votre nom, votre e-mail et votre message.", bad: "L'adresse e-mail ne semble pas valide.", off: "Le formulaire n'est pas encore activé. Écrivez-moi à ryhanababa@gmail.com.", sending: "Envoi en cours…", ok: "Merci, votre message a bien été envoyé. Je vous réponds rapidement.", fail: "L'envoi n'a pas abouti. Écrivez-moi directement à ryhanababa@gmail.com.", lb: "Image agrandie", close: "Fermer" },
+    en: { zoom: "Enlarge image", show: "Show image ", missing: "Please fill in your name, email and message.", bad: "This email address does not look valid.", off: "The form is not active yet. Please email me at ryhanababa@gmail.com.", sending: "Sending…", ok: "Thank you, your message has been sent. I will get back to you soon.", fail: "The message could not be sent. Please email me directly at ryhanababa@gmail.com.", lb: "Enlarged image", close: "Close" }
+  };
+  function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return {"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"}[c]; }); }
+
+  // Projets
+  function render(dataId, listId, t) {
+    var projets = [];
+    try { projets = JSON.parse(document.getElementById(dataId).textContent); } catch (e) { projets = []; }
+    document.getElementById(listId).innerHTML = projets.map(function (p) {
+      var im = p.images || [];
+      var gal = im.length ? '<div class="p-gallery"><button type="button" class="p-main" data-i="0" aria-label="' + esc(t.zoom) + '"><img src="' + esc(im[0].src) + '" alt="' + esc(im[0].alt || "") + '" loading="lazy"></button>' +
+        '<p class="p-cap">' + esc(im[0].legende || "") + '</p>' +
+        (im.length > 1 ? '<div class="p-thumbs">' + im.map(function (x, k) { return '<button type="button" class="p-thumb" data-i="' + k + '" aria-current="' + (k === 0) + '" aria-label="' + esc(t.show + (k + 1)) + '"><img src="' + esc(x.src) + '" alt=""></button>'; }).join("") + '</div>' : '') + '</div>' : '';
+      return '<article class="project" data-images="' + esc(JSON.stringify(im)) + '">' + gal +
+        '<div class="p-top"><span class="p-date">' + esc(p.date) + '</span><span class="p-ctx">' + esc(p.cadre || "") + '</span></div>' +
+        '<h3>' + esc(p.titre) + '</h3>' +
+        '<p class="p-sum">' + esc(p.resume) + '</p>' +
+        (p.chiffres && p.chiffres.length ? '<div class="metrics">' + p.chiffres.map(function (m) { return '<div class="metric"><b>' + esc(m.valeur) + '</b><small>' + esc(m.legende) + '</small></div>'; }).join("") + '</div>' : '') +
+        (p.points && p.points.length ? '<ul class="p-list">' + p.points.map(function (x) { return '<li>' + esc(x) + '</li>'; }).join("") + '</ul>' : '') +
+        '<div class="tags">' + (p.outils || []).map(function (x) { return '<span class="tag">' + esc(x) + '</span>'; }).join("") + '</div>' +
+        (p.lien ? '<a class="p-link" href="' + esc(p.lien) + '">' + esc(p.lienTexte || "") + ' →</a>' : '') +
+        '</article>';
+    }).join("");
+  }
+  render("projets-data", "project-list", TXT.fr);
+  render("projets-data-en", "project-list-en", TXT.en);
+
+  // Galerie et zoom
+  var lb = document.getElementById("lightbox"), lbImg = document.getElementById("lb-img"), lbCap = document.getElementById("lb-cap"), lbClose = document.getElementById("lb-close");
+  function closeLb() { lb.classList.remove("open"); }
+  document.addEventListener("click", function (e) {
     var btn = e.target.closest(".p-main, .p-thumb"); if (!btn) return;
     var card = btn.closest(".project"), im = JSON.parse(card.getAttribute("data-images") || "[]");
     var k = +btn.getAttribute("data-i");
@@ -674,15 +1055,56 @@ footer { padding: 28px 0 40px; border-top: 1px solid var(--line); color: var(--m
       var main = card.querySelector(".p-main"); main.setAttribute("data-i", k);
       main.querySelector("img").src = im[k].src; main.querySelector("img").alt = im[k].alt || "";
       card.querySelector(".p-cap").textContent = im[k].legende || "";
-      card.querySelectorAll(".p-thumb").forEach(function (t) { t.setAttribute("aria-current", t === btn); });
+      card.querySelectorAll(".p-thumb").forEach(function (x) { x.setAttribute("aria-current", x === btn); });
       return;
     }
     lbImg.src = im[k].src; lbImg.alt = im[k].alt || ""; lbCap.textContent = im[k].legende || "";
-    lb.classList.add("open"); document.getElementById("lb-close").focus();
+    lb.classList.add("open"); lbClose.focus();
   });
-  document.getElementById("lb-close").addEventListener("click", close);
-  lb.addEventListener("click", function (e) { if (e.target === lb) close(); });
-  document.addEventListener("keydown", function (e) { if (e.key === "Escape") close(); });
+  lbClose.addEventListener("click", closeLb);
+  lb.addEventListener("click", function (e) { if (e.target === lb) closeLb(); });
+  document.addEventListener("keydown", function (e) { if (e.key === "Escape") closeLb(); });
+
+  // Formulaires de contact (un par langue)
+  [["contact-form", "fr"], ["contact-form-en", "en"]].forEach(function (pair) {
+    var form = document.getElementById(pair[0]); if (!form) return;
+    var t = TXT[pair[1]], status = form.querySelector(".form-status"), send = form.querySelector("button[type=submit]");
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      status.className = "form-status";
+      var data = Object.fromEntries(new FormData(form));
+      if (!data.name || !data.email || !data.message) { status.className = "form-status err"; status.textContent = t.missing; return; }
+      if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(data.email)) { status.className = "form-status err"; status.textContent = t.bad; return; }
+      if (data.access_key === "VOTRE_CLE_WEB3FORMS") { status.className = "form-status err"; status.textContent = t.off; return; }
+      send.disabled = true; status.textContent = t.sending;
+      fetch("https://api.web3forms.com/submit", { method: "POST", headers: { "Content-Type": "application/json", "Accept": "application/json" }, body: JSON.stringify(data) })
+        .then(function (r) { return r.json(); })
+        .then(function (res) { if (res.success) { status.className = "form-status ok"; status.textContent = t.ok; form.reset(); } else { throw new Error(); } })
+        .catch(function () { status.className = "form-status err"; status.textContent = t.fail; })
+        .finally(function () { send.disabled = false; });
+    });
+  });
+
+  // Choix de la langue : bouton FR/EN, sans recharger la page
+  var root = document.documentElement;
+  function setLang(lang, keep) {
+    root.setAttribute("data-lang", lang);
+    root.setAttribute("lang", lang);
+    lb.setAttribute("aria-label", TXT[lang].lb); lbClose.setAttribute("aria-label", TXT[lang].close);
+    if (keep) { try { localStorage.setItem("lang", lang); } catch (e) {} }
+  }
+  document.querySelectorAll("[data-set-lang]").forEach(function (b) {
+    b.addEventListener("click", function () {
+      var lang = b.getAttribute("data-set-lang");
+      setLang(lang, true);
+      if (location.hash) { history.replaceState(null, "", lang === "en" ? "#en" : location.pathname); }
+      window.scrollTo(0, 0);
+    });
+  });
+  var saved = null; try { saved = localStorage.getItem("lang"); } catch (e) {}
+  var start = /^#(en|.*-en)$/.test(location.hash) ? "en" : (saved === "en" ? "en" : "fr");
+  setLang(start, false);
+  if (location.hash.length > 1 && location.hash !== "#en") { var tgt = document.getElementById(location.hash.slice(1)); if (tgt) tgt.scrollIntoView(); }
 })();
 </script>
 </body>
