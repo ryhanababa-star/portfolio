@@ -178,6 +178,18 @@ section.alt { background: var(--navy-2); }
 .value .proof { margin: 0; padding-top: 12px; border-top: 1px dashed var(--line); font-size: 13.5px; color: var(--navy); }
 .value .proof b { color: var(--gold); font-weight: 700; }
 
+/* Prochaine étape */
+.next { background: var(--navy); color: #fff; border-top: 0; }
+.next .kicker { color: var(--sky); }
+.next h2 { font-size: clamp(28px, 3.8vw, 42px); font-weight: 800; line-height: 1.15; max-width: 22em; margin-bottom: 18px; }
+.next h2 em { font-style: normal; color: var(--sky); }
+.next p.lead { color: #c4d8ee; max-width: 44em; margin: 0 0 26px; font-size: 17.5px; }
+.next-facts { display: flex; flex-wrap: wrap; gap: 10px; margin: 0 0 30px; padding: 0; list-style: none; }
+.next-facts li { padding: 8px 14px; border: 1px solid rgba(95, 179, 240, 0.5); border-radius: 999px; background: rgba(95, 179, 240, 0.12); color: #fff; font-size: 14.5px; }
+.next-facts b { color: var(--sky); font-weight: 700; }
+.next .btn.gold { background: var(--sky); border-color: var(--sky); color: var(--navy); }
+.next .btn.gold:hover { background: #fff; border-color: #fff; color: var(--navy); }
+
 /* Citation */
 .why { text-align: left; }
 .why blockquote { max-width: 820px; }
@@ -456,6 +468,21 @@ button.lang-switch { background: none; cursor: pointer; font-family: var(--font)
     </div>
   </section>
 
+  <section class="next" id="prochaine-etape">
+    <div class="wrap">
+      <p class="kicker">Prochaine étape</p>
+      <h2>J'ai déjà modélisé la sinistralité auto et habitation sur le terrain. <em>Je suis prête à le faire pour votre équipe dès février 2027.</em></h2>
+      <p class="lead">Une formation d'actuariat, une première expérience en assurance IARD chez Addactis et des projets de modélisation aboutis : je cherche maintenant le stage de fin d'études où mettre tout cela en pratique.</p>
+      <ul class="next-facts">
+        <li><b>Début :</b> février 2027</li>
+        <li><b>Durée :</b> 4 à 6 mois</li>
+        <li><b>Domaines :</b> actuariat, gestion des risques, data en assurance</li>
+        <li><b>Lieu :</b> France, Belgique, Luxembourg, Québec</li>
+      </ul>
+      <a class="btn gold" href="#contact" data-open-contact>Parlons de votre besoin</a>
+    </div>
+  </section>
+
   <section id="contact">
     <div class="wrap">
       <p class="kicker">Contact</p>
@@ -715,6 +742,21 @@ button.lang-switch { background: none; cursor: pointer; font-family: var(--font)
     <div class="wrap why">
       <p class="kicker">Why actuarial science?</p>
       <blockquote>I want to build a career in quantitative analysis and risk, using my skills to support anticipation, decision-making and innovation in insurance, mutual insurance, banking and consulting.</blockquote>
+    </div>
+  </section>
+
+  <section class="next" id="prochaine-etape-en">
+    <div class="wrap">
+      <p class="kicker">Next step</p>
+      <h2>I have already modelled motor and home insurance claims in a real team. <em>I am ready to do it for yours from February 2027.</em></h2>
+      <p class="lead">Actuarial training, hands-on P&amp;C insurance experience at Addactis and completed modelling projects: I am now looking for the final-year internship where I can put all of this into practice.</p>
+      <ul class="next-facts">
+        <li><b>Start:</b> February 2027</li>
+        <li><b>Length:</b> 4 to 6 months</li>
+        <li><b>Fields:</b> actuarial science, risk management, insurance data</li>
+        <li><b>Location:</b> France, Belgium, Luxembourg, Quebec</li>
+      </ul>
+      <a class="btn gold" href="#contact-en" data-open-contact>Let's talk about your needs</a>
     </div>
   </section>
 
