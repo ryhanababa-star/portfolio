@@ -100,7 +100,7 @@ section.alt { background: var(--navy-2); }
 .chip { padding: 6px 11px; border-radius: 999px; border: 1px solid var(--line); font-size: 14px; color: var(--text); background: var(--navy-2); }
 
 /* Projets */
-.projects { display: grid; grid-template-columns: repeat(auto-fit, minmax(330px, 1fr)); gap: 22px; }
+.projects { display: grid; grid-template-columns: repeat(auto-fit, minmax(440px, 1fr)); gap: 28px; }
 .project { display: flex; flex-direction: column; border: 1px solid var(--line); border-radius: 12px; padding: 24px; background: #fff; transition: border-color 0.2s, transform 0.2s; }
 .project:hover { border-color: var(--sky); box-shadow: 0 12px 30px rgba(11, 37, 69, 0.08); transform: translateY(-2px); }
 .p-top { display: flex; justify-content: space-between; gap: 12px; align-items: baseline; margin-bottom: 10px; }
@@ -108,7 +108,22 @@ section.alt { background: var(--navy-2); }
 .p-ctx { font-size: 12.5px; color: var(--muted); text-align: right; }
 .project h3 { font-size: 20px; font-weight: 700; margin-bottom: 10px; }
 .p-sum { color: var(--muted); margin: 0 0 14px; font-size: 15.5px; }
-.p-img { border-radius: 8px; overflow: hidden; margin: 0 0 14px; background: #fff; }
+.p-gallery { margin: -24px -24px 20px; }
+.p-main { display: block; width: 100%; padding: 0; border: 0; border-bottom: 1px solid var(--line); background: #fff; cursor: zoom-in; border-radius: 12px 12px 0 0; overflow: hidden; }
+.p-main img { width: 100%; height: 300px; object-fit: contain; padding: 14px; transition: transform 0.3s; }
+.p-main:hover img { transform: scale(1.02); }
+.p-cap { margin: 10px 24px 0; font-size: 13.5px; color: var(--muted); }
+.p-thumbs { display: flex; gap: 10px; margin: 10px 24px 0; }
+.p-thumb { width: 96px; height: 64px; padding: 0; border: 1px solid var(--line); border-radius: 6px; background: #fff; cursor: pointer; overflow: hidden; }
+.p-thumb img { width: 100%; height: 100%; object-fit: contain; padding: 4px; }
+.p-thumb[aria-current="true"] { border: 2px solid var(--sky); }
+.lightbox { position: fixed; inset: 0; z-index: 50; display: none; place-items: center; background: rgba(11, 37, 69, 0.88); padding: 24px; }
+.lightbox.open { display: grid; }
+.lightbox figure { margin: 0; max-width: min(1200px, 100%); background: #fff; border-radius: 12px; padding: 16px; }
+.lightbox img { max-height: 78vh; width: auto; margin: 0 auto; }
+.lightbox figcaption { margin-top: 10px; color: var(--muted); font-size: 14.5px; text-align: center; }
+.lightbox .close { position: absolute; top: 16px; right: 20px; width: 44px; height: 44px; border-radius: 50%; border: 0; background: #fff; color: var(--navy); font-size: 26px; line-height: 1; cursor: pointer; }
+@media (max-width: 520px) { .projects { grid-template-columns: 1fr; } .p-main img { height: 220px; } }
 .metrics { display: flex; flex-wrap: wrap; gap: 18px; margin: 2px 0 16px; }
 .metric b { display: block; font-size: 28px; font-weight: 800; color: var(--gold); font-variant-numeric: tabular-nums; line-height: 1.1; }
 .metric small { display: block; font-size: 12.5px; color: var(--muted); max-width: 15em; line-height: 1.4; }
@@ -352,7 +367,8 @@ footer { padding: 28px 0 40px; border-top: 1px solid var(--line); color: var(--m
   LISTE DES PROJETS (les plus pertinents pour l'actuariat en premier)
   Pour ajouter un projet : copier un bloc { ... } et le placer selon sa pertinence pour l'actuariat.
   Champs : date, titre, cadre, resume, points (liste), chiffres (liste de {valeur, legende}, résultats réels uniquement),
-  outils (liste), lien + lienTexte (facultatifs), image + imageAlt (facultatifs, fichier placé à côté de index.html).
+  outils (liste), lien + lienTexte (facultatifs),
+  images (facultatif) : liste de {src, alt, legende}, fichiers placés à côté de index.html ; la première s'affiche en grand.
 -->
 <script type="application/json" id="projets-data">
 [
@@ -385,7 +401,19 @@ footer { padding: 28px 0 40px; border-top: 1px solid var(--line); color: var(--m
       "Réseau de neurones"
     ],
     "lien": "https://github.com/ryhanababa-star/credit-risk-prediction",
-    "lienTexte": "Voir le projet"
+    "lienTexte": "Voir le projet",
+    "images": [
+      {
+        "src": "credit-roc.jpg",
+        "alt": "Courbe ROC du modèle de risque de crédit : cumul réel comparé au cumul idéal",
+        "legende": "Courbe ROC sur l'échantillon test : cumul réel des défauts détectés (orange) face au cumul idéal (bleu)."
+      },
+      {
+        "src": "credit-apprentissage.jpg",
+        "alt": "Interface JNNET pendant l'entraînement du réseau de neurones, avec la courbe d'erreur",
+        "legende": "Entraînement du réseau de neurones sous JNNET et évolution de l'erreur."
+      }
+    ]
   },
   {
     "date": "Master 1",
@@ -408,6 +436,13 @@ footer { padding: 28px 0 40px; border-top: 1px solid var(--line); color: var(--m
       "M/M/5",
       "Réseau de Petri",
       "Sinistralité"
+    ],
+    "images": [
+      {
+        "src": "mm5-schema.svg",
+        "alt": "Schéma du système M/M/5 : 15 sinistres par jour, une file d'attente et 5 gestionnaires",
+        "legende": "Schéma du système modélisé et principaux résultats."
+      }
     ]
   },
   {
@@ -433,7 +468,19 @@ footer { padding: 28px 0 40px; border-top: 1px solid var(--line); color: var(--m
       "Réseau de neurones"
     ],
     "lien": "https://github.com/ryhanababa-star/bank-marketing-classification",
-    "lienTexte": "Voir le rapport"
+    "lienTexte": "Voir le rapport",
+    "images": [
+      {
+        "src": "banque-reseau-neurones.jpg",
+        "alt": "Architecture du réseau de neurones retenu : 13 variables d'entrée, 5 neurones cachés, 1 sortie",
+        "legende": "Réseau de neurones retenu : 13 variables d'entrée, 5 neurones cachés."
+      },
+      {
+        "src": "banque-arbre-decision.jpg",
+        "alt": "Arbre de décision : les variables previous et pdays séparent les clients",
+        "legende": "Arbre de décision : le contact lors d'une campagne précédente est la variable la plus déterminante."
+      }
+    ]
   },
   {
     "date": "Janvier 2025",
@@ -444,8 +491,6 @@ footer { padding: 28px 0 40px; border-top: 1px solid var(--line); color: var(--m
       "Calcul de l'annuité, des intérêts, de l'amortissement, de l'assurance et du capital restant dû, période par période.",
       "Graphique interactif de la répartition intérêts / capital, export du tableau en CSV et en Excel."
     ],
-    "image": "shiny-remboursement.jpg",
-    "imageAlt": "Capture du simulateur : paramètres du prêt, tableau d'amortissement et graphique de répartition",
     "outils": [
       "R",
       "Shiny",
@@ -454,7 +499,14 @@ footer { padding: 28px 0 40px; border-top: 1px solid var(--line); color: var(--m
       "Simulation"
     ],
     "lien": "https://github.com/ryhanababa-star/tableau-remboursement-rshiny",
-    "lienTexte": "Voir le code"
+    "lienTexte": "Voir le code",
+    "images": [
+      {
+        "src": "shiny-remboursement.jpg",
+        "alt": "Capture du simulateur : paramètres du prêt, tableau d'amortissement et graphique de répartition",
+        "legende": "L'application : paramètres du prêt, tableau d'amortissement et répartition intérêts / capital."
+      }
+    ]
   },
   {
     "date": "Mars 2026",
@@ -471,6 +523,13 @@ footer { padding: 28px 0 40px; border-top: 1px solid var(--line); color: var(--m
       "PyTorch",
       "U-Net",
       "Google Colab"
+    ],
+    "images": [
+      {
+        "src": "segmentation-courbes.jpg",
+        "alt": "Courbes de perte et de précision du U-Net en apprentissage et en validation sur 140 époques",
+        "legende": "Perte et précision en apprentissage et en validation au fil des époques."
+      }
     ]
   }
 ]
@@ -482,11 +541,15 @@ footer { padding: 28px 0 40px; border-top: 1px solid var(--line); color: var(--m
   var projets = [];
   try { projets = JSON.parse(document.getElementById("projets-data").textContent); } catch (e) { projets = []; }
   document.getElementById("project-list").innerHTML = projets.map(function (p) {
-    return '<article class="project">' +
+    var im = p.images || [];
+    var gal = im.length ? '<div class="p-gallery"><button type="button" class="p-main" data-i="0" aria-label="Agrandir l\'image"><img src="' + esc(im[0].src) + '" alt="' + esc(im[0].alt || "") + '" loading="lazy"></button>' +
+      '<p class="p-cap">' + esc(im[0].legende || "") + '</p>' +
+      (im.length > 1 ? '<div class="p-thumbs">' + im.map(function (x, k) { return '<button type="button" class="p-thumb" data-i="' + k + '" aria-current="' + (k === 0) + '" aria-label="Voir l\'image ' + (k + 1) + '"><img src="' + esc(x.src) + '" alt=""></button>'; }).join("") + '</div>' : '') + '</div>' : '';
+    return '<article class="project" data-images="' + esc(JSON.stringify(im)) + '">' + gal +
       '<div class="p-top"><span class="p-date">' + esc(p.date) + '</span><span class="p-ctx">' + esc(p.cadre || "") + '</span></div>' +
       '<h3>' + esc(p.titre) + '</h3>' +
       '<p class="p-sum">' + esc(p.resume) + '</p>' +
-      (p.image ? '<div class="p-img"><img src="' + esc(p.image) + '" alt="' + esc(p.imageAlt || "") + '" loading="lazy"></div>' : '') +
+      
       (p.chiffres && p.chiffres.length ? '<div class="metrics">' + p.chiffres.map(function (m) { return '<div class="metric"><b>' + esc(m.valeur) + '</b><small>' + esc(m.legende) + '</small></div>'; }).join("") + '</div>' : '') +
       (p.points && p.points.length ? '<ul class="p-list">' + p.points.map(function (x) { return '<li>' + esc(x) + '</li>'; }).join("") + '</ul>' : '') +
       '<div class="tags">' + (p.outils || []).map(function (t) { return '<span class="tag">' + esc(t) + '</span>'; }).join("") + '</div>' +
@@ -517,6 +580,33 @@ footer { padding: 28px 0 40px; border-top: 1px solid var(--line); color: var(--m
       .catch(function () { status.className = "form-status err"; status.textContent = "L'envoi n'a pas abouti. Écrivez-moi directement à ryhanababa@gmail.com."; })
       .finally(function () { send.disabled = false; });
   });
+})();
+</script>
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image agrandie">
+  <button type="button" class="close" id="lb-close" aria-label="Fermer">×</button>
+  <figure><img id="lb-img" src="" alt=""><figcaption id="lb-cap"></figcaption></figure>
+</div>
+<script>
+(function () {
+  var lb = document.getElementById("lightbox"), lbImg = document.getElementById("lb-img"), lbCap = document.getElementById("lb-cap");
+  function close() { lb.classList.remove("open"); }
+  document.getElementById("project-list").addEventListener("click", function (e) {
+    var btn = e.target.closest(".p-main, .p-thumb"); if (!btn) return;
+    var card = btn.closest(".project"), im = JSON.parse(card.getAttribute("data-images") || "[]");
+    var k = +btn.getAttribute("data-i");
+    if (btn.classList.contains("p-thumb")) {
+      var main = card.querySelector(".p-main"); main.setAttribute("data-i", k);
+      main.querySelector("img").src = im[k].src; main.querySelector("img").alt = im[k].alt || "";
+      card.querySelector(".p-cap").textContent = im[k].legende || "";
+      card.querySelectorAll(".p-thumb").forEach(function (t) { t.setAttribute("aria-current", t === btn); });
+      return;
+    }
+    lbImg.src = im[k].src; lbImg.alt = im[k].alt || ""; lbCap.textContent = im[k].legende || "";
+    lb.classList.add("open"); document.getElementById("lb-close").focus();
+  });
+  document.getElementById("lb-close").addEventListener("click", close);
+  lb.addEventListener("click", function (e) { if (e.target === lb) close(); });
+  document.addEventListener("keydown", function (e) { if (e.key === "Escape") close(); });
 })();
 </script>
 </body>
