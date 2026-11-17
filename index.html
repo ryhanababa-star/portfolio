@@ -189,22 +189,24 @@ section.alt { background: var(--navy-2); }
 .c-item b { display: block; font-size: 11.5px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 6px; }
 .c-item a, .c-item span { color: var(--text); text-decoration: none; word-break: break-word; }
 .c-item a:hover { color: var(--gold); }
-/* Formulaire de contact */
-.contact-grid { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr); gap: 28px; align-items: start; }
-.form { border: 1px solid var(--line); border-radius: 12px; padding: 24px; background: #fff; display: grid; gap: 16px; }
-.form .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-.form label { display: grid; gap: 6px; font-size: 13px; font-weight: 600; letter-spacing: 0.04em; color: var(--muted); }
-.form input, .form textarea { width: 100%; padding: 12px 14px; border-radius: 6px; border: 1px solid var(--line); background: var(--navy-2); color: var(--text); font: 400 15.5px/1.5 var(--font); }
-.form textarea { min-height: 140px; resize: vertical; }
-.form input:focus, .form textarea:focus { outline: none; border-color: var(--gold); box-shadow: 0 0 0 3px var(--gold-soft); }
-.form button { justify-self: start; cursor: pointer; font-family: var(--font); }
-.form button[disabled] { opacity: 0.6; cursor: wait; }
-.form-status { margin: 0; font-size: 14.5px; min-height: 1.4em; }
-.form-status.ok { color: #1e7a4f; }
-.form-status.err { color: #b3361f; }
-.hp { position: absolute; left: -9999px; }
-.contact { grid-template-columns: 1fr; }
-@media (max-width: 860px) { .contact-grid, .form .row2 { grid-template-columns: 1fr; } }
+/* Contact : cartes et panneau latéral */
+.contact-panel { max-width: 560px; }
+.cards-contact { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+.cc { display: flex; align-items: center; gap: 16px; padding: 16px 18px; border: 1px solid var(--line); border-radius: 10px; background: #fff; color: var(--text); text-decoration: none; transition: border-color 0.2s, box-shadow 0.2s; }
+.cc:hover, .cc:focus-visible { border-color: var(--sky); box-shadow: 0 0 0 3px var(--gold-soft); outline: none; }
+.cc-ic { flex: none; display: grid; place-items: center; width: 48px; height: 48px; border-radius: 6px; background: var(--navy); color: #fff; font-weight: 800; font-size: 17px; }
+.cc b { display: block; font-size: 17px; color: var(--navy); }
+.cc b + span { display: block; color: var(--muted); font-size: 15px; word-break: break-word; }
+.drawer { position: fixed; inset: 0; z-index: 60; background: rgba(11, 37, 69, 0.55); display: flex; justify-content: flex-end; }
+.drawer[hidden] { display: none; }
+.drawer-box { width: min(420px, 100%); height: 100%; background: #fff; box-shadow: -20px 0 50px rgba(0, 0, 0, 0.2); display: flex; flex-direction: column; animation: slide 0.25s ease-out; }
+@keyframes slide { from { transform: translateX(40px); opacity: 0; } to { transform: none; opacity: 1; } }
+.drawer-head { display: flex; align-items: center; gap: 14px; padding: 18px 20px; background: var(--navy); color: #fff; font-weight: 700; font-size: 19px; }
+.drawer-x { position: relative; width: 38px; height: 38px; border: 0; background: none; color: #fff; font-size: 22px; cursor: pointer; display: grid; place-items: center; }
+.drawer-x::before { content: ""; position: absolute; inset: 3px; border: 1.5px solid var(--sky); border-radius: 5px; transform: rotate(45deg); }
+.drawer-x:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
+.drawer-body { padding: 24px 20px; overflow-y: auto; }
+.drawer-sub { margin: 0 0 18px; font-size: 21px; font-weight: 800; color: var(--navy); }
 footer { padding: 28px 0 40px; border-top: 1px solid var(--line); color: var(--muted); font-size: 13.5px; }
 
 @media (max-width: 860px) {
@@ -251,7 +253,7 @@ button.lang-switch { background: none; cursor: pointer; font-family: var(--font)
         <p class="quote">« Transformer les données en décisions stratégiques, optimiser les risques et créer de la valeur grâce à l'analyse quantitative. »</p>
         <div class="ctas">
           <a class="btn gold" href="#projets">Voir mes projets</a>
-          <a class="btn white" href="#contact">Me contacter</a>
+          <a class="btn white" href="#contact" data-open-contact>Me contacter</a>
         </div>
       </div>
       <div class="portrait">
@@ -459,32 +461,31 @@ button.lang-switch { background: none; cursor: pointer; font-family: var(--font)
       <p class="kicker">Contact</p>
       <h2 class="sec-title">Échangeons sur un stage</h2>
       <p class="sec-intro">Je recherche un stage de fin d'études de 4 à 6 mois en actuariat ou en gestion des risques, à partir de février 2027.</p>
-      <div class="contact-grid">
-        <form class="form" id="contact-form" novalidate>
-          <!-- Clé Web3Forms : la remplacer par celle reçue par e-mail sur web3forms.com (les messages arrivent alors sur ryhanababa@gmail.com) -->
-          <input type="hidden" name="access_key" value="VOTRE_CLE_WEB3FORMS">
-          <input type="hidden" name="subject" value="Nouveau message depuis ton portfolio">
-          <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
-          <div class="row2">
-            <label for="f-nom">Nom<input id="f-nom" name="name" type="text" autocomplete="name" required></label>
-            <label for="f-mail">E-mail<input id="f-mail" name="email" type="email" autocomplete="email" required></label>
-          </div>
-          <label for="f-org">Entreprise (facultatif)<input id="f-org" name="entreprise" type="text" autocomplete="organization"></label>
-          <label for="f-msg">Message<textarea id="f-msg" name="message" required></textarea></label>
-          <button class="btn gold" type="submit" id="f-send">Envoyer le message</button>
-          <p class="form-status" id="f-status" role="status" aria-live="polite"></p>
-        </form>
-        <div class="contact">
-          <div class="c-item"><b>E-mail</b><a href="mailto:ryhanababa@gmail.com">ryhanababa@gmail.com</a></div>
-          <div class="c-item"><b>LinkedIn</b><a href="https://www.linkedin.com/in/ryhanatou-baba-a4a6a3202">linkedin.com/in/ryhanatou-baba</a></div>
-          <div class="c-item"><b>GitHub</b><a href="https://github.com/ryhanababa-star">github.com/ryhanababa-star</a></div>
+      <div class="contact-panel">
+          <ul class="cards-contact">
+            <li><a class="cc" href="mailto:ryhanababa@gmail.com"><span class="cc-ic" aria-hidden="true">@</span><span><b>E-mail</b><span>ryhanababa@gmail.com</span></span></a></li>
+            <li><a class="cc" href="tel:+33650268980"><span class="cc-ic" aria-hidden="true">T</span><span><b>Appeler</b><span>+33 6 50 26 89 80</span></span></a></li>
+            <li><a class="cc" href="https://www.linkedin.com/in/ryhanatou-baba-a4a6a3202"><span class="cc-ic" aria-hidden="true">in</span><span><b>LinkedIn</b><span>linkedin.com/in/ryhanatou-baba</span></span></a></li>
+          </ul>
         </div>
-      </div>
     </div>
   </section>
 </main>
 
 <footer><div class="wrap">© Ryhanatou BABA · Angers, France</div></footer>
+<div class="drawer" id="drawer" role="dialog" aria-modal="true" aria-labelledby="drawer-title" hidden>
+  <div class="drawer-box">
+    <div class="drawer-head"><button type="button" class="drawer-x" data-close-contact aria-label="Fermer">×</button><span id="drawer-title">Me contacter</span></div>
+    <div class="drawer-body">
+      <p class="drawer-sub">Échangeons sur un stage</p>
+      <ul class="cards-contact">
+            <li><a class="cc" href="mailto:ryhanababa@gmail.com"><span class="cc-ic" aria-hidden="true">@</span><span><b>E-mail</b><span>ryhanababa@gmail.com</span></span></a></li>
+            <li><a class="cc" href="tel:+33650268980"><span class="cc-ic" aria-hidden="true">T</span><span><b>Appeler</b><span>+33 6 50 26 89 80</span></span></a></li>
+            <li><a class="cc" href="https://www.linkedin.com/in/ryhanatou-baba-a4a6a3202"><span class="cc-ic" aria-hidden="true">in</span><span><b>LinkedIn</b><span>linkedin.com/in/ryhanatou-baba</span></span></a></li>
+          </ul>
+    </div>
+  </div>
+</div>
 </div>
 <div class="lang-en" lang="en">
 <header class="top">
@@ -514,7 +515,7 @@ button.lang-switch { background: none; cursor: pointer; font-family: var(--font)
         <p class="quote">“Turning data into strategic decisions, optimising risk and creating value through quantitative analysis.”</p>
         <div class="ctas">
           <a class="btn gold" href="#projets-en">See my projects</a>
-          <a class="btn white" href="#contact-en">Contact me</a>
+          <a class="btn white" href="#contact-en" data-open-contact>Contact me</a>
         </div>
       </div>
       <div class="portrait">
@@ -722,32 +723,31 @@ button.lang-switch { background: none; cursor: pointer; font-family: var(--font)
       <p class="kicker">Contact</p>
       <h2 class="sec-title">Let's talk about an internship</h2>
       <p class="sec-intro">I am looking for a 4 to 6 month final-year internship in actuarial science or risk management, starting in February 2027.</p>
-      <div class="contact-grid">
-        <form class="form" id="contact-form-en" novalidate>
-          <!-- Clé Web3Forms : la remplacer par celle reçue par e-mail sur web3forms.com (les messages arrivent alors sur ryhanababa@gmail.com) -->
-          <input type="hidden" name="access_key" value="VOTRE_CLE_WEB3FORMS">
-          <input type="hidden" name="subject" value="Nouveau message depuis ton portfolio (version anglaise)">
-          <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
-          <div class="row2">
-            <label for="f-nom-en">Name<input id="f-nom-en" name="name" type="text" autocomplete="name" required></label>
-            <label for="f-mail-en">Email<input id="f-mail-en" name="email" type="email" autocomplete="email" required></label>
-          </div>
-          <label for="f-org-en">Company (optional)<input id="f-org-en" name="entreprise" type="text" autocomplete="organization"></label>
-          <label for="f-msg-en">Message<textarea id="f-msg-en" name="message" required></textarea></label>
-          <button class="btn gold" type="submit" id="f-send-en">Send message</button>
-          <p class="form-status" id="f-status-en" role="status" aria-live="polite"></p>
-        </form>
-        <div class="contact">
-          <div class="c-item"><b>Email</b><a href="mailto:ryhanababa@gmail.com">ryhanababa@gmail.com</a></div>
-          <div class="c-item"><b>LinkedIn</b><a href="https://www.linkedin.com/in/ryhanatou-baba-a4a6a3202">linkedin.com/in/ryhanatou-baba</a></div>
-          <div class="c-item"><b>GitHub</b><a href="https://github.com/ryhanababa-star">github.com/ryhanababa-star</a></div>
+      <div class="contact-panel">
+          <ul class="cards-contact">
+            <li><a class="cc" href="mailto:ryhanababa@gmail.com"><span class="cc-ic" aria-hidden="true">@</span><span><b>Email</b><span>ryhanababa@gmail.com</span></span></a></li>
+            <li><a class="cc" href="tel:+33650268980"><span class="cc-ic" aria-hidden="true">T</span><span><b>Call</b><span>+33 6 50 26 89 80</span></span></a></li>
+            <li><a class="cc" href="https://www.linkedin.com/in/ryhanatou-baba-a4a6a3202"><span class="cc-ic" aria-hidden="true">in</span><span><b>LinkedIn</b><span>linkedin.com/in/ryhanatou-baba</span></span></a></li>
+          </ul>
         </div>
-      </div>
     </div>
   </section>
 </main>
 
 <footer><div class="wrap">© Ryhanatou BABA · Angers, France</div></footer>
+<div class="drawer" id="drawer-en" role="dialog" aria-modal="true" aria-labelledby="drawer-title-en" hidden>
+  <div class="drawer-box">
+    <div class="drawer-head"><button type="button" class="drawer-x" data-close-contact aria-label="Close">×</button><span id="drawer-title-en">Contact me</span></div>
+    <div class="drawer-body">
+      <p class="drawer-sub">Let's talk about an internship</p>
+      <ul class="cards-contact">
+            <li><a class="cc" href="mailto:ryhanababa@gmail.com"><span class="cc-ic" aria-hidden="true">@</span><span><b>Email</b><span>ryhanababa@gmail.com</span></span></a></li>
+            <li><a class="cc" href="tel:+33650268980"><span class="cc-ic" aria-hidden="true">T</span><span><b>Call</b><span>+33 6 50 26 89 80</span></span></a></li>
+            <li><a class="cc" href="https://www.linkedin.com/in/ryhanatou-baba-a4a6a3202"><span class="cc-ic" aria-hidden="true">in</span><span><b>LinkedIn</b><span>linkedin.com/in/ryhanatou-baba</span></span></a></li>
+          </ul>
+    </div>
+  </div>
+</div>
 </div>
 
 <!--
@@ -1142,28 +1142,22 @@ button.lang-switch { background: none; cursor: pointer; font-family: var(--font)
   lb.addEventListener("click", function (e) { if (e.target === lb) closeLb(); });
   document.addEventListener("keydown", function (e) { if (e.key === "Escape") closeLb(); });
 
-  // Formulaires de contact (un par langue)
-  [["contact-form", "fr"], ["contact-form-en", "en"]].forEach(function (pair) {
-    var form = document.getElementById(pair[0]); if (!form) return;
-    var t = TXT[pair[1]], status = form.querySelector(".form-status"), send = form.querySelector("button[type=submit]");
-    form.addEventListener("submit", function (e) {
-      e.preventDefault();
-      status.className = "form-status";
-      var data = Object.fromEntries(new FormData(form));
-      if (!data.name || !data.email || !data.message) { status.className = "form-status err"; status.textContent = t.missing; return; }
-      if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(data.email)) { status.className = "form-status err"; status.textContent = t.bad; return; }
-      if (data.access_key === "VOTRE_CLE_WEB3FORMS") { status.className = "form-status err"; status.textContent = t.off; return; }
-      send.disabled = true; status.textContent = t.sending;
-      fetch("https://api.web3forms.com/submit", { method: "POST", headers: { "Content-Type": "application/json", "Accept": "application/json" }, body: JSON.stringify(data) })
-        .then(function (r) { return r.json(); })
-        .then(function (res) { if (res.success) { status.className = "form-status ok"; status.textContent = t.ok; form.reset(); } else { throw new Error(); } })
-        .catch(function () { status.className = "form-status err"; status.textContent = t.fail; })
-        .finally(function () { send.disabled = false; });
-    });
-  });
+
+  var root = document.documentElement;
+  // Panneau « Me contacter »
+  var lastFocus = null;
+  function openDrawer() {
+    var id = root.getAttribute("data-lang") === "en" ? "drawer-en" : "drawer";
+    var d = document.getElementById(id); lastFocus = document.activeElement;
+    d.hidden = false; d.querySelector(".drawer-x").focus();
+  }
+  function closeDrawers() { document.querySelectorAll(".drawer").forEach(function (d) { d.hidden = true; }); if (lastFocus) lastFocus.focus(); }
+  document.querySelectorAll("[data-open-contact]").forEach(function (b) { b.addEventListener("click", function (e) { e.preventDefault(); openDrawer(); }); });
+  document.querySelectorAll("[data-close-contact]").forEach(function (b) { b.addEventListener("click", closeDrawers); });
+  document.querySelectorAll(".drawer").forEach(function (d) { d.addEventListener("click", function (e) { if (e.target === d) closeDrawers(); }); });
+  document.addEventListener("keydown", function (e) { if (e.key === "Escape") closeDrawers(); });
 
   // Choix de la langue : bouton FR/EN, sans recharger la page
-  var root = document.documentElement;
   function setLang(lang, keep) {
     root.setAttribute("data-lang", lang);
     root.setAttribute("lang", lang);
