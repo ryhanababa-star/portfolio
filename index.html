@@ -169,6 +169,15 @@ section.alt { background: var(--navy-2); }
 .perso .event h4 { margin-top: 8px; }
 @media (max-width: 860px) { .engage, .events { grid-template-columns: 1fr; } }
 
+/* Ce que j'apporte */
+.value { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; counter-reset: v; }
+.value article { position: relative; border: 1px solid var(--line); border-top: 4px solid var(--sky); border-radius: 12px; padding: 24px 22px 20px; background: #fff; }
+.value .num { font: 500 13px/1 var(--mono); color: var(--gold); }
+.value h3 { font-size: 18.5px; font-weight: 700; margin: 10px 0 8px; }
+.value p { margin: 0 0 12px; color: var(--muted); font-size: 15px; }
+.value .proof { margin: 0; padding-top: 12px; border-top: 1px dashed var(--line); font-size: 13.5px; color: var(--navy); }
+.value .proof b { color: var(--gold); font-weight: 700; }
+
 /* Citation */
 .why { text-align: left; }
 .why blockquote { max-width: 820px; }
@@ -277,6 +286,40 @@ button.lang-switch { background: none; cursor: pointer; font-family: var(--font)
           <div class="fact"><b>Domaines d'intérêt</b><span>Assurance, mutualité, banque, conseil</span></div>
           <div class="fact"><b>Formation initiale</b><span>Licence Mathématiques appliquées aux sciences humaines et sociales</span></div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="apport">
+    <div class="wrap">
+      <p class="kicker">Ce que j'apporte</p>
+      <h2 class="sec-title">Ce que je peux apporter à votre équipe</h2>
+      <p class="sec-intro">Quatre atouts, chacun appuyé par un stage ou un projet concret.</p>
+      <div class="value">
+        <article>
+          <span class="num">01</span>
+          <h3>Une double compétence actuariat et data</h3>
+          <p>Des méthodes statistiques et actuarielles (GLM, régressions, classification) mises en œuvre avec R, Python et SQL.</p>
+          <p class="proof"><b>Exemple :</b> risque de crédit sur 32 581 emprunteurs, 86 % de bonne classification.</p>
+        </article>
+        <article>
+          <span class="num">02</span>
+          <h3>Une première expérience en assurance</h3>
+          <p>Des études de marché et de sinistralité en assurance IARD : fréquence, coût moyen, marché auto, habitation et professionnel.</p>
+          <p class="proof"><b>Exemple :</b> stage chez Addactis, équipe Pricing &amp; Analytics P&amp;C.</p>
+        </article>
+        <article>
+          <span class="num">03</span>
+          <h3>De la rigueur sur les données</h3>
+          <p>Préparation, contrôle et fiabilisation des données avant toute modélisation : valeurs manquantes, anomalies, reportings sécurisés.</p>
+          <p class="proof"><b>Exemple :</b> reportings de risques sous SQL à la direction des risques d'Arkéa.</p>
+        </article>
+        <article>
+          <span class="num">04</span>
+          <h3>Des résultats clairs pour le métier</h3>
+          <p>Des synthèses, des indicateurs et des visualisations que les équipes non techniques peuvent lire et utiliser.</p>
+          <p class="proof"><b>Exemple :</b> simulateur financier interactif développé en R Shiny.</p>
+        </article>
       </div>
     </div>
   </section>
@@ -506,6 +549,40 @@ button.lang-switch { background: none; cursor: pointer; font-family: var(--font)
           <div class="fact"><b>Fields of interest</b><span>Insurance, mutual insurance, banking, consulting</span></div>
           <div class="fact"><b>Bachelor's degree</b><span>Applied Mathematics for the Social Sciences</span></div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="apport-en">
+    <div class="wrap">
+      <p class="kicker">What I bring</p>
+      <h2 class="sec-title">What I can bring to your team</h2>
+      <p class="sec-intro">Four strengths, each backed by a real internship or project.</p>
+      <div class="value">
+        <article>
+          <span class="num">01</span>
+          <h3>Combined actuarial and data skills</h3>
+          <p>Statistical and actuarial methods (GLM, regression, classification) applied with R, Python and SQL.</p>
+          <p class="proof"><b>Example:</b> credit risk model on 32,581 borrowers, 86% correct classification.</p>
+        </article>
+        <article>
+          <span class="num">02</span>
+          <h3>First-hand insurance experience</h3>
+          <p>Market and claims studies in P&amp;C insurance: frequency, average cost, motor, home and commercial lines.</p>
+          <p class="proof"><b>Example:</b> internship at Addactis, Pricing &amp; Analytics P&amp;C team.</p>
+        </article>
+        <article>
+          <span class="num">03</span>
+          <h3>Rigour with data</h3>
+          <p>Preparing, checking and securing data before any modelling: missing values, anomalies, reliable reporting.</p>
+          <p class="proof"><b>Example:</b> SQL risk reports for Arkéa's risk department.</p>
+        </article>
+        <article>
+          <span class="num">04</span>
+          <h3>Clear results for business teams</h3>
+          <p>Summaries, indicators and visualisations that non-technical teams can read and use.</p>
+          <p class="proof"><b>Example:</b> interactive financial simulator built with R Shiny.</p>
+        </article>
       </div>
     </div>
   </section>
