@@ -175,7 +175,8 @@ section.alt { background: var(--navy-2); }
 .event .label-ev { font: 500 12.5px/1.3 var(--mono); color: var(--gold); text-transform: uppercase; letter-spacing: 0.06em; }
 .event h4 { margin: 8px 0 6px; font-size: 18px; color: var(--navy); }
 .event p { margin: 0; color: var(--muted); font-size: 15px; }
-.perso { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; margin-top: 28px; }
+.perso { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-top: 28px; }
+@media (max-width: 700px) { .perso { grid-template-columns: 1fr; } }
 .perso .event h4 { margin-top: 8px; }
 @media (max-width: 860px) { .engage, .events { grid-template-columns: 1fr; } }
 
@@ -440,7 +441,7 @@ button.lang-switch { background: none; cursor: pointer; font-family: var(--font)
     <div class="wrap">
       <p class="kicker">Au-delà des études</p>
       <h2 class="sec-title">Engagement et activités</h2>
-      <p class="sec-intro">En dehors des études : du bénévolat sur des événements de la région angevine, l'organisation de voyages de groupe, de la course à pied et un cours d'anglais chaque semaine.</p>
+      <p class="sec-intro">En dehors des études : du bénévolat sur des événements de la région angevine, l'organisation de voyages de groupe, la cuisine et la pâtisserie, la course à pied et un cours d'anglais chaque semaine.</p>
       <div class="engage">
         <article class="engage-org">
           <h3>Bénévole</h3>
@@ -465,6 +466,11 @@ button.lang-switch { background: none; cursor: pointer; font-family: var(--font)
           <span class="label-ev">Organisation</span>
           <h4>Voyages et sorties de groupe</h4>
           <p>Je prépare des voyages et des rencontres pour des groupes de 5 à 10 personnes : choix des destinations, planning, budget, réservations et coordination du groupe. Destinations : Genève, Barcelone, Sitges, le Mont-Blanc, les îles des Glénan et l'île de Ré.</p>
+        </article>
+        <article class="event">
+          <span class="label-ev">Passion</span>
+          <h4>Cuisine et pâtisserie</h4>
+          <p>J'adore cuisiner et faire de la pâtisserie. Comme en modélisation, tout tient à la précision : le bon dosage, la bonne méthode et beaucoup de patience.</p>
         </article>
         <article class="event">
           <span class="label-ev">Sport</span>
@@ -722,7 +728,7 @@ button.lang-switch { background: none; cursor: pointer; font-family: var(--font)
     <div class="wrap">
       <p class="kicker">Beyond my studies</p>
       <h2 class="sec-title">Volunteering and activities</h2>
-      <p class="sec-intro">Outside my studies: volunteering at events around Angers, organising group trips, running and a weekly English class.</p>
+      <p class="sec-intro">Outside my studies: volunteering at events around Angers, organising group trips, cooking and baking, running and a weekly English class.</p>
       <div class="engage">
         <article class="engage-org">
           <h3>Volunteer</h3>
@@ -747,6 +753,11 @@ button.lang-switch { background: none; cursor: pointer; font-family: var(--font)
           <span class="label-ev">Organisation</span>
           <h4>Group trips and outings</h4>
           <p>I plan trips and get-togethers for groups of 5 to 10 people: choosing destinations, scheduling, budgeting, bookings and coordinating the group. Destinations: Geneva, Barcelona, Sitges, Mont Blanc, the Glénan Islands and Île de Ré.</p>
+        </article>
+        <article class="event">
+          <span class="label-ev">Passion</span>
+          <h4>Cooking and baking</h4>
+          <p>I love cooking and baking. Just like in modelling, it is all about precision: the right amounts, the right method and plenty of patience.</p>
         </article>
         <article class="event">
           <span class="label-ev">Sport</span>
